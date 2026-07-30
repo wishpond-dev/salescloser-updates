@@ -165,7 +165,8 @@
     grid-template-columns: 1fr;
     margin-top: clamp(1.4rem, 3vw, 2.4rem);
   }
-  @media (min-width: 900px) { .wins { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 860px) { .wins { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1240px) { .wins { grid-template-columns: repeat(4, 1fr); } }
 
   .win {
     background: var(--surface);
@@ -185,6 +186,15 @@
     border-bottom-color: var(--line-2);
     background: var(--surface-2);
   }
+  .win .area {
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tone, var(--accent-3));
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+  }
   .win h4 {
     font-family: var(--sans);
     font-size: clamp(1.05rem, 1.35vw, 1.32rem);
@@ -203,6 +213,23 @@
   .tone-call    .win { --tone: oklch(78% 0.13 190); }
   .tone-data    .win { --tone: oklch(83% 0.12 85); }
   .tone-product .win { --tone: oklch(80% 0.14 155); }
+
+  .win .tech {
+    font-size: 0.775rem;
+    color: var(--faint);
+    line-height: 1.4;
+    margin-top: 0.55rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid var(--line-2);
+  }
+  .mitem .tech {
+    font-size: 0.75rem;
+    color: var(--faint);
+    line-height: 1.4;
+    margin-top: 0.45rem;
+    padding-left: 0.65rem;
+    border-left: 1px solid var(--line-2);
+  }
 
   /* refs - Shortcut story + PR, for whoever wants to go look it up */
   .refs {
@@ -399,31 +426,36 @@
 
       <div class="wins" data-rise="2">
         <div class="win">
+          <div class="area">Phone bot · IVR</div>
+          <h4>Gets through phone menus</h4>
+          <p>Fewer calls die inside a phone tree.</p>
+          <p class="tech">Enforceable navigation cap, human verdict confirmed before it pitches, answering machine re detection mid call.</p>
+          <div class="refs"><span class="ref story">sc-79908</span><span class="ref">bot #621</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Phone bot · Voicemail</div>
+          <h4>Voicemails get left again</h4>
+          <p>The prospect hears a message, not dead air.</p>
+          <p class="tech">Regression from the mid call pickup work: the new state guard was suppressing voicemail deposits.</p>
+          <div class="refs"><span class="ref">bot #611</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Bot · Conversation</div>
           <h4>It waits its turn</h4>
-          <p>The call feels like a person, not a phone menu.</p>
-          <div class="refs">
-            <span class="ref story">sc-78512</span><span class="ref">bot #606</span>
-            <span class="ref story">sc-79379</span><span class="ref">bot fb3015d6</span>
-          </div>
+          <p>It sounds like a person, not a phone menu.</p>
+          <p class="tech">Its own dispatched text is classified as bot speech, follow up answers route back through the origin exit, and barge in suppression releases when playback does.</p>
+          <div class="refs"><span class="ref story">sc-78512</span><span class="ref">bot #606</span><span class="ref story">sc-79379</span></div>
         </div>
         <div class="win">
-          <h4>It gets past the gatekeeper</h4>
-          <p>Fewer leads lost in the first thirty seconds.</p>
-          <div class="refs">
-            <span class="ref story">sc-79908</span><span class="ref">bot #621</span>
-            <span class="ref">bot #611</span>
-          </div>
-        </div>
-        <div class="win">
-          <h4>We can measure how fast it answers</h4>
-          <p>&ldquo;It feels slow&rdquo; is now a number we can fix.</p>
-          <div class="refs">
-            <span class="ref story">sc-79739</span><span class="ref">bot #605</span>
-          </div>
+          <div class="area">Bot · Voice</div>
+          <h4>It reads emails back correctly</h4>
+          <p>The email we capture is one we can reach.</p>
+          <p class="tech">Cleaned up the text handed to text to speech: no injected characters, domain pronounced as a domain.</p>
+          <div class="refs"><span class="ref story">sc-80080</span><span class="ref">bot #628</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: email addresses read back correctly <b>(sc-80080 · bot #628)</b>, voicemails leave again <b>(bot #611)</b>, quiet callers heard on web calls <b>(sc-78512 · dash #1906)</b>, in-call cards no longer stall the conversation <b>(sc-77820 · bot #600)</b>.</p>
+      <p class="footnote" data-rise="3">Also on calls: web and video calls auto adjust the microphone so quiet callers are heard <b>(sc-78512 · dash #1906)</b>, in call cards no longer stall the conversation <b>(sc-77820 · bot #600)</b>, and every call now reports its own response times so we can prove and improve speed <b>(sc-79739 · bot #605)</b>.</p>
 
       <div class="stats" data-rise="4">
         <div class="stat"><div class="n">47</div><div class="l">changes shipped to production</div></div>
@@ -440,32 +472,37 @@
 
       <div class="wins" data-rise="2">
         <div class="win">
+          <div class="area">Marketplace · CRM</div>
           <h4>Pipedrive and HubSpot install themselves</h4>
-          <p>Connected the same day they say yes, with no engineering ticket.</p>
-          <div class="refs">
-            <span class="ref story">sc-78922</span><span class="ref story">sc-77345</span>
-            <span class="ref story">sc-77355</span><span class="ref">dash #1705</span>
-          </div>
+          <p>Connected the same day they say yes.</p>
+          <p class="tech">Per connector OAuth install and callback behind a connector registry, with the account, the plan and the install landing resolved server side.</p>
+          <div class="refs"><span class="ref story">sc-78922</span><span class="ref story">sc-77345</span><span class="ref story">sc-77355</span><span class="ref">dash #1705</span></div>
         </div>
         <div class="win">
-          <h4>A broken integration can't hide</h4>
-          <p>We spot it before the client notices missing leads.</p>
-          <div class="refs">
-            <span class="ref story">sc-78922</span><span class="ref">dash #1705</span>
-          </div>
+          <div class="area">Integrations · Health</div>
+          <h4>A dead integration can't hide</h4>
+          <p>We catch a broken one before they lose leads.</p>
+          <p class="tech">Connection verified on page view, partner tokens refreshed on a schedule, and an authenticated uninstall callback processed as a queued job.</p>
+          <div class="refs"><span class="ref story">sc-78922</span><span class="ref">dash #1705</span></div>
         </div>
         <div class="win">
-          <h4>Every result lands in their tools, once</h4>
-          <p>Conversions fire their automations, recordings arrive, reports match reality.</p>
-          <div class="refs">
-            <span class="ref story">sc-77292</span><span class="ref">dash #1610</span>
-            <span class="ref story">sc-78963</span><span class="ref">dash #1716</span>
-            <span class="ref">dash #1938</span>
-          </div>
+          <div class="area">Webhooks · Zapier</div>
+          <h4>A conversion now fires their automations</h4>
+          <p>A win becomes a task or a CRM stage on its own.</p>
+          <p class="tech">New conversion.reached webhook the moment the agent converts on a call, plus a matching Zapier REST hook trigger.</p>
+          <div class="refs"><span class="ref story">sc-77292</span><span class="ref">dash #1610</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Recordings</div>
+          <h4>Phone recordings arrive, exactly once</h4>
+          <p>No missing recordings, and no duplicates to clean up.</p>
+          <p class="tech">The Twilio recording callback now emits recording.generated, deduped on a stored provider recording id.</p>
+          <div class="refs"><span class="ref story">sc-78963</span><span class="ref">dash #1716</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: Customer Success can now see where a client stalled in onboarding, synced onto the account in Vitally <b>(dash #1903)</b>.</p>
+      <p class="footnote" data-rise="3">Also: call records close properly when the agent reports screening or who answered <b>(dash #1938)</b>, and Customer Success can see where a client stalled in onboarding, synced onto the account in Vitally <b>(dash #1903)</b>.</p>
+
     </section>
 
     <!-- 3 · THE PRODUCT -->
@@ -477,33 +514,37 @@
 
       <div class="wins" data-rise="2">
         <div class="win">
+          <div class="area">Billing · 3D Secure</div>
           <h4>Cards that need bank approval go through</h4>
-          <p>Signups that used to fail silently, mostly European cards, now convert.</p>
-          <div class="refs">
-            <span class="ref story">sc-90266</span><span class="ref">dash #1944</span>
-          </div>
+          <p>Signups that used to fail silently now convert, mostly European cards.</p>
+          <p class="tech">Subscription payment intents are confirmed on session, so the 3D Secure challenge can render in the browser.</p>
+          <div class="refs"><span class="ref story">sc-90266</span><span class="ref">dash #1944</span></div>
         </div>
         <div class="win">
-          <h4>Crashes gone, one client's files stay theirs</h4>
-          <p>Clients see the product instead of an error, and account isolation holds.</p>
-          <div class="refs">
-            <span class="ref">dash #1950</span>
-            <span class="ref story">sc-79941</span><span class="ref">dash 47c65695</span>
-            <span class="ref">dash #1926</span>
-          </div>
+          <div class="area">Knowledgebase · Security</div>
+          <h4>One client's files stay one client's files</h4>
+          <p>The isolation question enterprise buyers ask before signing.</p>
+          <p class="tech">The delete now resolves the file through the owning client knowledgebase instead of by id alone.</p>
+          <div class="refs"><span class="ref">dash #1926</span></div>
         </div>
         <div class="win">
-          <h4>Big accounts load fast, the team serves itself</h4>
-          <p>No slowdown as a client grows, and no waiting on us for a list.</p>
-          <div class="refs">
-            <span class="ref">dash #1949</span><span class="ref">dash #1784</span>
-            <span class="ref">dash #1783</span>
-            <span class="ref story">sc-79497</span><span class="ref">dash #1763</span>
-          </div>
+          <div class="area">Admin · Speed</div>
+          <h4>Big accounts stop dragging</h4>
+          <p>The dashboard stops slowing down as a client grows.</p>
+          <p class="tech">Product detection moved off a per row collection query, and the knowledgebase list no longer loads every agent just to render a list.</p>
+          <div class="refs"><span class="ref">dash #1784</span><span class="ref">dash #1949</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Admin · Self serve</div>
+          <h4>The team stops asking us for lists</h4>
+          <p>Fewer &ldquo;can someone pull me a list&rdquo; requests.</p>
+          <p class="tech">CSV export endpoint, breadcrumb component on every admin view, empty states, and a search input that is not 6rem wide.</p>
+          <div class="refs"><span class="ref">dash #1783</span><span class="ref story">sc-79497</span><span class="ref">dash #1763</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: chat widgets can carry the client's own image in the header <b>(sc-79822 · dash #1891)</b>, the agent page lists exactly which actions an agent can take <b>(dash #1710)</b>, and release notes render properly again <b>(sc-79897 · dash #1919)</b>.</p>
+      <p class="footnote" data-rise="3">Also: two crash screens gone, the agent form when a subscription lapsed <b>(dash #1950)</b> and a live admin page error <b>(sc-79941)</b>. Chat widgets can carry the client's own image in the header <b>(sc-79822 · dash #1891)</b>, the agent page lists exactly which actions an agent can take <b>(dash #1710)</b>, and release notes render properly again <b>(sc-79897 · dash #1919)</b>.</p>
+
     </section>
 
     <!-- 4 · FREEDOM MEANS NO FEAR -->
@@ -535,16 +576,19 @@
         <div class="mitem">
           <h5>A code review agent is already running</h5>
           <p>It picks up real pull requests, runs a multi reviewer pass, and posts what it found. In testing now.</p>
+          <p class="tech">Slack mention triggers it, it pulls the PR, runs a multi reviewer pipeline, posts what it found.</p>
           <div class="refs"><span class="ref">jimmy-jackhamr-bridge</span></div>
         </div>
         <div class="mitem">
           <h5>QA agents can now build their own test environment</h5>
           <p>Our internal environment platform got an API, so an agent can spin up a full copy of the product for one story, test against it, and tear it down. That is the piece QA automation was missing.</p>
+          <p class="tech">Bearer token API on /api/v1. POST /envs claims the namespace synchronously, so a retrying agent cannot double provision one environment.</p>
           <div class="refs"><span class="ref">coltrane #63</span><span class="ref">coltrane #61</span></div>
         </div>
         <div class="mitem">
           <h5>The loop got faster</h5>
           <p>Build times for the AI agent dropped to about 2 to 3 minutes, so a fix reported today can be live today.</p>
+          <p class="tech">Base and app images split, so an app build no longer pulls the 9GB base layer every time.</p>
           <div class="refs"><span class="ref story">sc-79960</span><span class="ref">bot #620</span><span class="ref">bot #618</span></div>
         </div>
       </div>
