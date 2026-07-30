@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>SalesCloser · Company Meetings</title>
+<meta name="description" content="Decks from SalesCloser company meetings: what shipped and what it means for our clients." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg:        oklch(15% 0.018 265);
+    --surface:   oklch(23% 0.02 265 / 0.6);
+    --surface-2: oklch(27% 0.022 265 / 0.5);
+    --line:      oklch(100% 0 0 / 0.09);
+    --line-2:    oklch(100% 0 0 / 0.14);
+    --text:      oklch(96% 0.005 265);
+    --muted:     oklch(72% 0.015 265);
+    --faint:     oklch(58% 0.015 265);
+    --accent:    oklch(72% 0.15 275);
+    --accent-2:  oklch(80% 0.13 85);
+    --accent-3:  oklch(74% 0.14 190);
+    --good:      oklch(78% 0.15 155);
+
+    --serif: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: clamp(15px, 0.6vw + 12px, 17px);
+    line-height: 1.5;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(60% 55% at 85% 8%, oklch(72% 0.15 275 / 0.20), transparent 70%),
+      radial-gradient(55% 50% at 5% 95%, oklch(74% 0.14 190 / 0.13), transparent 72%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.3rem, 5vw, 4rem) clamp(4rem, 8vw, 7rem);
+  }
+
+  header .mark { height: 30px; width: auto; display: block; margin-bottom: clamp(2rem, 5vw, 3.5rem); opacity: 0.95; }
+
+  .eyebrow {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .eyebrow::before { content: ""; width: 1.8rem; height: 1px; background: var(--accent-2); opacity: 0.7; }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 1.1rem 0 1rem;
+    text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: var(--accent-2); }
+
+  .lede {
+    font-size: clamp(1rem, 1.2vw, 1.22rem);
+    color: var(--muted);
+    max-width: 52ch;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  h2.section {
+    font-family: var(--sans);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: clamp(3rem, 7vw, 5rem) 0 1.1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* meeting rows */
+  .meeting {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 2rem;
+    align-items: baseline;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--accent-3);
+    border-radius: 14px;
+    background: var(--surface);
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 0.8rem;
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  @media (min-width: 760px) { .meeting { grid-template-columns: 11rem 1fr auto; align-items: center; } }
+  .meeting:hover, .meeting:focus-visible {
+    transform: translateX(5px);
+    background: var(--surface-2);
+    border-top-color: var(--line-2);
+    border-right-color: var(--line-2);
+    border-bottom-color: var(--line-2);
+    outline: none;
+  }
+  .meeting .date {
+    font-family: var(--serif);
+    font-size: 1.28rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .meeting .date span { display: block; font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin-top: 0.25rem; }
+  .meeting .what h3 { font-family: var(--sans); font-size: 1.06rem; font-weight: 600; line-height: 1.3; }
+  .meeting .what p { font-size: 0.88rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.4; }
+  .meeting .go {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+  }
+  .meeting .go svg { width: 0.95rem; height: 0.95rem; transition: transform 0.25s var(--ease); }
+  .meeting:hover .go svg { transform: translateX(3px); }
+
+  /* an upcoming meeting with no deck yet */
+  .meeting.pending {
+    border-left-color: var(--line-2);
+    background: oklch(100% 0 0 / 0.02);
+    cursor: default;
+  }
+  .meeting.pending:hover { transform: none; background: oklch(100% 0 0 / 0.02); }
+  .meeting.pending .go { color: var(--faint); }
+
+  .note {
+    margin-top: 1.6rem;
+    font-size: 0.86rem;
+    color: var(--faint);
+    line-height: 1.55;
+    max-width: 70ch;
+  }
+  .note a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid oklch(80% 0.13 85 / 0.35); }
+  .note a:hover { border-bottom-color: var(--accent-2); }
+
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.8rem;
+    color: var(--faint);
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="mark" src="data:image/png;base64,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" alt="SalesCloser" width="33" height="30" />
+      <span class="eyebrow">Company meetings</span>
+      <h1>What we shipped,<br>and what it <em>means.</em></h1>
+      <p class="lede">Every company meeting deck lives here. Written for the whole company, not for engineers: what changed in the product, and what a client actually feels because of it.</p>
+    </header>
+
+    <h2 class="section">Meetings</h2>
+
+    <a class="meeting" href="2026-07-30/">
+      <div class="date">Jul 30<span>2026</span></div>
+      <div class="what">
+        <h3>What shipped for our clients</h3>
+        <p>Jul 23 to Jul 29. Better live calls, results landing in the client's own tools, fewer dead ends in the product, and where the team is heading next.</p>
+      </div>
+      <div class="go">Open deck
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </a>
+
+    <p class="note">Each meeting gets its own dated folder, so a deck stays linkable after the meeting is over. Related: the engineering operating model deck, <a href="https://wishpond-dev.github.io/freedom-no-fear/">Freedom means no fear</a>.</p>
+
+    <footer>SalesCloser · internal company updates · built from what actually landed on master.</footer>
+  </div>
+</body>
+</html>
