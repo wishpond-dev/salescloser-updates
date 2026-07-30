@@ -167,6 +167,16 @@
   }
   @media (min-width: 860px) { .wins { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1240px) { .wins { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1100px) {
+    .wins.featured { grid-template-columns: repeat(3, 1fr); }
+    .wins.featured .win.feature { grid-column: span 2; }
+  }
+  .win.feature {
+    background: linear-gradient(140deg, oklch(78% 0.15 155 / 0.13), var(--surface) 60%);
+    border-left-width: 3px;
+  }
+  .win.feature h4 { font-size: clamp(1.2rem, 1.7vw, 1.6rem); }
+  .win.feature > p:not(.tech) { font-size: clamp(1rem, 1.15vw, 1.18rem); }
 
   .win {
     background: var(--surface);
@@ -398,6 +408,32 @@
     padding: 0.1rem 0.4rem; color: var(--muted);
   }
 
+  /* short screens (projectors, laptops at 720p) - tighten instead of cropping */
+  @media (max-height: 880px) {
+    .slide {
+      justify-content: flex-start;
+      padding-top: clamp(2.6rem, 5vh, 3.4rem);
+      padding-bottom: clamp(3.4rem, 7vh, 4.5rem);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    h2 { font-size: clamp(1.7rem, 3.1vw, 2.7rem); }
+    .lede { font-size: clamp(0.95rem, 1.05vw, 1.12rem); }
+    .wins, .focus { margin-top: 1rem; gap: 0.65rem; }
+    .win, .fcol { padding: 0.95rem 1.1rem 1.05rem; }
+    .win h4 { font-size: clamp(0.99rem, 1.2vw, 1.16rem); margin-bottom: 0.4rem; }
+    .win.feature h4 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+    .win p { font-size: clamp(0.89rem, 0.98vw, 1rem); }
+    .win .tech, .mitem .tech { font-size: 0.735rem; margin-top: 0.42rem; }
+    .refs { padding-top: 0.7rem; }
+    .footnote { margin-top: 0.85rem; font-size: 0.78rem; }
+    .stats { margin-top: 0.9rem; padding-top: 0.8rem; }
+    .stat .n { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+    .motion { gap: 0.6rem; }
+    .mitem { padding: 0.8rem 1rem 0.9rem; }
+    .idea-num { font-size: clamp(1.9rem, 4vw, 3.4rem); top: 1rem; }
+  }
+
   @media (max-width: 640px) {
     .hint { display: none; }
     .logo { top: 1rem; left: 1.1rem; height: 24px; }
@@ -512,7 +548,14 @@
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Fewer dead ends between <em class="serif-i">interest and value.</em></h2>
       <p class="lede" data-rise="1">The unglamorous half of the week: where clients were quietly getting stuck.</p>
 
-      <div class="wins" data-rise="2">
+      <div class="wins featured" data-rise="2">
+        <div class="win feature">
+          <div class="area">Chat widget · Branding</div>
+          <h4>The chat widget can wear the client's brand</h4>
+          <p>A chat-only agent stops looking like our product and starts looking like theirs.</p>
+          <p class="tech">Chat-only agents previously only got their initials in the widget header, because the image uploader was hidden for them in the Vue layer. There is now a Chat Image upload in agent settings that renders as a round avatar at the top of the embedded widget, with initials as the fallback. It reuses the existing static image pipeline, so no backend change and no migration.</p>
+          <div class="refs"><span class="ref story">sc-79822</span><span class="ref">dash #1891</span></div>
+        </div>
         <div class="win">
           <div class="area">Billing · 3D Secure</div>
           <h4>Cards that need bank approval go through</h4>
@@ -543,7 +586,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: two crash screens gone, the agent form when a subscription lapsed <b>(dash #1950)</b> and a live admin page error <b>(sc-79941)</b>. Chat widgets can carry the client's own image in the header <b>(sc-79822 · dash #1891)</b>, the agent page lists exactly which actions an agent can take <b>(dash #1710)</b>, and release notes render properly again <b>(sc-79897 · dash #1919)</b>.</p>
+      <p class="footnote" data-rise="3">Also: two crash screens gone, the agent form when a subscription lapsed <b>(dash #1950)</b> and a live admin page error <b>(sc-79941)</b>. The agent page lists exactly which actions an agent can take <b>(dash #1710)</b>, and release notes render properly again <b>(sc-79897 · dash #1919)</b>.</p>
 
     </section>
 
