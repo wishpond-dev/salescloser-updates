@@ -223,6 +223,7 @@
   .tone-call    .win { --tone: oklch(78% 0.13 190); }
   .tone-data    .win { --tone: oklch(83% 0.12 85); }
   .tone-product .win { --tone: oklch(80% 0.14 155); }
+  .tone-ops     .win { --tone: oklch(78% 0.13 300); }
 
   .win .tech {
     font-size: 0.775rem;
@@ -413,16 +414,6 @@
      one that anchors to the top before the others need to. */
   @media (max-height: 1000px) {
     .slide { overflow-y: auto; scrollbar-width: thin; }
-    #s-product {
-      justify-content: flex-start;
-      padding-top: clamp(2.6rem, 5vh, 3.4rem);
-      padding-bottom: clamp(3.4rem, 7vh, 4.5rem);
-    }
-    /* Nine cards plus a footnote only clear the nav pill if slide 3 drops its lede. */
-    #s-product .lede { display: none; }
-    #s-product .wins { gap: 0.5rem; }
-    #s-product .win { padding-bottom: 0.8rem; }
-    #s-product .refs { padding-top: 0.55rem; }
     h2 { font-size: clamp(1.7rem, 3.1vw, 2.7rem); }
     .lede { font-size: clamp(0.95rem, 1.05vw, 1.12rem); }
     .wins, .focus { margin-top: 0.9rem; gap: 0.6rem; }
@@ -598,12 +589,33 @@
           <p class="tech">Validation sniffed the file's MIME type, and a real 6MB export sniffs as plain text, so it was rejected as not JSON. Both import endpoints now check the extension instead, and still reject malformed JSON on decode.</p>
           <div class="refs"><span class="ref story">sc-90119</span><span class="ref">dash #1937</span></div>
         </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Also: the agent page now lists exactly which actions an agent can take <b>(dash #1710)</b>.</p>
+
+    </section>
+
+    <!-- 4 · ADMIN, QA & RELIABILITY -->
+    <section class="slide tone-ops" id="s-ops" aria-label="The surfaces our own team works in">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 300 / 0.42);">04</div>
+      <span class="eyebrow" data-rise="1">Admin, QA &amp; reliability</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The surfaces <em class="serif-i">our own team works in.</em></h2>
+      <p class="lede" data-rise="1">Nobody demos these. They decide how fast we can answer a client.</p>
+
+      <div class="wins" data-rise="2">
         <div class="win">
           <div class="area">Agent Test Center</div>
           <h4>Test runs stop failing runs that passed</h4>
           <p>A self assessment now reports what the agent actually did.</p>
           <p class="tech">The conversation guard was pinned at 90 seconds while the job had 600, so sequence agents past eight turns were failed, and the queue gave up at that same 90 seconds and ran a duplicate. Guard now shares the job budget, on its own queue connection.</p>
           <div class="refs"><span class="ref">dash #1920</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Stability · Crash screens</div>
+          <h4>Two dead ends stopped being dead ends</h4>
+          <p>Pages that used to throw an error now load.</p>
+          <p class="tech">The agent form 500'd once a subscription lapsed because the view never got its agent model, and a live admin page threw on data it did not expect.</p>
+          <div class="refs"><span class="ref">dash #1950</span><span class="ref story">sc-79941</span></div>
         </div>
         <div class="win">
           <div class="area">Admin · Speed</div>
@@ -621,15 +633,16 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: two crash screens gone <b>(dash #1950, sc-79941)</b>, agent action lists <b>(dash #1710)</b>, release notes render again <b>(dash #1919)</b>.</p>
+      <p class="footnote" data-rise="3">Also: release notes render properly again <b>(sc-79897 · dash #1919)</b>.</p>
 
     </section>
 
-    <!-- 4 · FREEDOM MEANS NO FEAR -->
-    <section class="slide" id="s-freedom" aria-label="Freedom means no fear">
-      <span class="eyebrow" data-rise="1">Where we're going next</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Freedom means <span class="grad">no fear.</span></h2>
-      <p class="lede" data-rise="1">Everything on the last three slides was built the current way. This is the operating model we're moving to, and it is not in place yet.</p>
+    <!-- 5 · WHERE ARE WE HEADING -->
+    <section class="slide" id="s-freedom" aria-label="Where are we heading">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.16 330 / 0.42);">05</div>
+      <span class="eyebrow" data-rise="1">The operating model we're building toward</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Where are we <span class="grad">heading.</span></h2>
+      <p class="lede" data-rise="1">Everything on the last four slides was built the current way. This is the operating model we're moving to, and it is not in place yet.</p>
 
       <div class="focus" data-rise="2">
         <div class="fcol automate">
