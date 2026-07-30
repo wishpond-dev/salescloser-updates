@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>SalesCloser · What Shipped for Our Clients · Jul 23 to 29</title>
+<title>SalesCloser · What Shipped for Our Clients · Jul 23 to 30</title>
 <style>
   /* ============================================================
      Fonts - loaded when online, graceful system fallback offline
@@ -409,18 +409,24 @@
   }
 
   /* short screens (projectors, laptops at 720p) - tighten instead of cropping */
-  @media (max-height: 880px) {
-    .slide {
+  /* Short viewports: tighten everything. Slide 3 carries the most cards, so it is the
+     one that anchors to the top before the others need to. */
+  @media (max-height: 1000px) {
+    .slide { overflow-y: auto; scrollbar-width: thin; }
+    #s-product {
       justify-content: flex-start;
       padding-top: clamp(2.6rem, 5vh, 3.4rem);
       padding-bottom: clamp(3.4rem, 7vh, 4.5rem);
-      overflow-y: auto;
-      scrollbar-width: thin;
     }
+    /* Nine cards plus a footnote only clear the nav pill if slide 3 drops its lede. */
+    #s-product .lede { display: none; }
+    #s-product .wins { gap: 0.5rem; }
+    #s-product .win { padding-bottom: 0.8rem; }
+    #s-product .refs { padding-top: 0.55rem; }
     h2 { font-size: clamp(1.7rem, 3.1vw, 2.7rem); }
     .lede { font-size: clamp(0.95rem, 1.05vw, 1.12rem); }
-    .wins, .focus { margin-top: 1rem; gap: 0.65rem; }
-    .win, .fcol { padding: 0.95rem 1.1rem 1.05rem; }
+    .wins, .focus { margin-top: 0.9rem; gap: 0.6rem; }
+    .win, .fcol { padding: 0.85rem 1rem 0.95rem; }
     .win h4 { font-size: clamp(0.99rem, 1.2vw, 1.16rem); margin-bottom: 0.4rem; }
     .win.feature h4 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
     .win p { font-size: clamp(0.89rem, 0.98vw, 1rem); }
@@ -432,6 +438,14 @@
     .motion { gap: 0.6rem; }
     .mitem { padding: 0.8rem 1rem 0.9rem; }
     .idea-num { font-size: clamp(1.9rem, 4vw, 3.4rem); top: 1rem; }
+  }
+
+  @media (max-height: 880px) {
+    .slide {
+      justify-content: flex-start;
+      padding-top: clamp(2.6rem, 5vh, 3.4rem);
+      padding-bottom: clamp(3.4rem, 7vh, 4.5rem);
+    }
   }
 
   @media (max-width: 640px) {
@@ -456,7 +470,7 @@
     <!-- 1 · THE CALL -->
     <section class="slide tone-call" id="s-call" aria-label="The call itself got better">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(74% 0.14 190 / 0.42);">01</div>
-      <span class="eyebrow" data-rise="1">Thu Jul 23 to Wed Jul 29 · what our clients get</span>
+      <span class="eyebrow" data-rise="1">Thu Jul 23 to Thu Jul 30 · what our clients get</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The call stopped sounding like <em class="serif-i">a robot.</em></h2>
       <p class="lede" data-rise="1">Most of the week went into the moment that decides the deal: the live conversation.</p>
 
@@ -494,8 +508,8 @@
       <p class="footnote" data-rise="3">Also on calls: web and video calls auto adjust the microphone so quiet callers are heard <b>(sc-78512 · dash #1906)</b>, in call cards no longer stall the conversation <b>(sc-77820 · bot #600)</b>, and every call now reports its own response times so we can prove and improve speed <b>(sc-79739 · bot #605)</b>.</p>
 
       <div class="stats" data-rise="4">
-        <div class="stat"><div class="n">47</div><div class="l">changes shipped to production</div></div>
-        <div class="stat"><div class="n">34</div><div class="l">pull requests merged</div></div>
+        <div class="stat"><div class="n">48</div><div class="l">changes shipped to production</div></div>
+        <div class="stat"><div class="n">35</div><div class="l">pull requests merged</div></div>
       </div>
     </section>
 
@@ -571,6 +585,27 @@
           <div class="refs"><span class="ref">dash #1926</span></div>
         </div>
         <div class="win">
+          <div class="area">Knowledgebase · Encoding</div>
+          <h4>Big knowledgebase files finish</h4>
+          <p>Large uploads stop dying halfway through indexing.</p>
+          <p class="tech">The worker held four copies of the same data while saving, so pods were getting OOM killed. Saving now streams rows out with csv.writer, frees each batch as it goes, and the batch size dropped from 64 to 32.</p>
+          <div class="refs"><span class="ref story">sc-79867</span><span class="ref">enc #21</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Agents · Templates</div>
+          <h4>Exported agents import back in</h4>
+          <p>Cloning a proven agent into another account works again.</p>
+          <p class="tech">Validation sniffed the file's MIME type, and a real 6MB export sniffs as plain text, so it was rejected as not JSON. Both import endpoints now check the extension instead, and still reject malformed JSON on decode.</p>
+          <div class="refs"><span class="ref story">sc-90119</span><span class="ref">dash #1937</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Agent Test Center</div>
+          <h4>Test runs stop failing runs that passed</h4>
+          <p>A self assessment now reports what the agent actually did.</p>
+          <p class="tech">The conversation guard was pinned at 90 seconds while the job had 600, so sequence agents past eight turns were failed, and the queue gave up at that same 90 seconds and ran a duplicate. Guard now shares the job budget, on its own queue connection.</p>
+          <div class="refs"><span class="ref">dash #1920</span></div>
+        </div>
+        <div class="win">
           <div class="area">Admin · Speed</div>
           <h4>Big accounts stop dragging</h4>
           <p>The dashboard stops slowing down as a client grows.</p>
@@ -586,7 +621,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: two crash screens gone, the agent form when a subscription lapsed <b>(dash #1950)</b> and a live admin page error <b>(sc-79941)</b>. The agent page lists exactly which actions an agent can take <b>(dash #1710)</b>, and release notes render properly again <b>(sc-79897 · dash #1919)</b>.</p>
+      <p class="footnote" data-rise="3">Also: two crash screens gone <b>(dash #1950, sc-79941)</b>, agent action lists <b>(dash #1710)</b>, release notes render again <b>(dash #1919)</b>.</p>
 
     </section>
 
