@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>SalesCloser · What Shipped for Our Clients · Aug 13 to 20</title>
+<style>
+  /* ============================================================
+     Fonts - loaded when online, graceful system fallback offline
+     ============================================================ */
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    /* palette - dark luxury / editorial (shared with the Freedom deck) */
+    --bg:        oklch(15% 0.018 265);
+    --surface:   oklch(23% 0.02 265 / 0.6);
+    --surface-2: oklch(27% 0.022 265 / 0.5);
+    --line:      oklch(100% 0 0 / 0.09);
+    --line-2:    oklch(100% 0 0 / 0.14);
+    --text:      oklch(96% 0.005 265);
+    --muted:     oklch(72% 0.015 265);
+    --faint:     oklch(58% 0.015 265);
+    --accent:    oklch(72% 0.15 275);
+    --accent-2:  oklch(80% 0.13 85);
+    --accent-3:  oklch(74% 0.14 190);
+    --good:      oklch(78% 0.15 155);
+
+    --serif: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: clamp(15px, 0.6vw + 12px, 18px);
+    line-height: 1.5;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* atmospheric glows + faint grain for depth */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(60% 55% at 82% 12%, oklch(72% 0.15 275 / 0.20), transparent 70%),
+      radial-gradient(55% 50% at 8% 92%, oklch(74% 0.14 190 / 0.14), transparent 72%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ============================================================
+     Deck + slides
+     ============================================================ */
+  .deck { position: relative; height: 100dvh; width: 100vw; z-index: 1; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 6rem);
+    max-width: 1480px;
+    margin-inline: auto;
+  }
+  .slide.is-active { display: flex; animation: rise 0.6s var(--ease) both; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide.is-active { animation: none; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  .slide.is-active [data-rise] { animation: rise 0.6s var(--ease) both; }
+  .slide.is-active [data-rise="1"] { animation-delay: 0.06s; }
+  .slide.is-active [data-rise="2"] { animation-delay: 0.13s; }
+  .slide.is-active [data-rise="3"] { animation-delay: 0.20s; }
+  .slide.is-active [data-rise="4"] { animation-delay: 0.27s; }
+
+  /* ============================================================
+     Typography
+     ============================================================ */
+  .eyebrow {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.8rem;
+    height: 1px;
+    background: var(--accent-2);
+    opacity: 0.7;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: clamp(1rem, 1.25vw, 1.28rem);
+    color: var(--muted);
+    max-width: 68ch;
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+  .grad {
+    background: linear-gradient(105deg, var(--accent-2), var(--accent) 55%, var(--accent-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  em.serif-i { font-style: italic; color: var(--accent-2); }
+
+  .idea-num {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 7vw, 6rem);
+    line-height: 1;
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--line-2);
+    letter-spacing: -0.03em;
+    position: absolute;
+    top: clamp(1.2rem, 4vw, 2.6rem);
+    right: clamp(1.4rem, 6vw, 6rem);
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     Wins - the core component: what changed / why a client feels it
+     ============================================================ */
+  .wins {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: 1fr;
+    margin-top: clamp(1.4rem, 3vw, 2.4rem);
+  }
+  @media (min-width: 860px) { .wins { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1240px) { .wins { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1100px) {
+    .wins.featured { grid-template-columns: repeat(3, 1fr); }
+    .wins.featured .win.feature { grid-column: span 2; }
+  }
+  .win.feature {
+    background: linear-gradient(140deg, oklch(78% 0.15 155 / 0.13), var(--surface) 60%);
+    border-left-width: 3px;
+  }
+  .win.feature h4 { font-size: clamp(1.2rem, 1.7vw, 1.6rem); }
+  .win.feature > p:not(.tech) { font-size: clamp(1rem, 1.15vw, 1.18rem); }
+
+  .win {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--tone, var(--accent));
+    border-radius: 14px;
+    padding: 1.3rem 1.4rem 1.45rem;
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  .win:hover {
+    transform: translateY(-4px);
+    border-top-color: var(--line-2);
+    border-right-color: var(--line-2);
+    border-bottom-color: var(--line-2);
+    background: var(--surface-2);
+  }
+  .win .area {
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tone, var(--accent-3));
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+  }
+  .win h4 {
+    font-family: var(--sans);
+    font-size: clamp(1.05rem, 1.35vw, 1.32rem);
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.55rem;
+  }
+  .win p {
+    font-size: clamp(0.94rem, 1.05vw, 1.08rem);
+    color: var(--tone, var(--accent-3));
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  /* per-slide tone */
+  .tone-call    .win { --tone: oklch(78% 0.13 190); }
+  .tone-data    .win { --tone: oklch(83% 0.12 85); }
+  .tone-product .win { --tone: oklch(80% 0.14 155); }
+  .tone-ops     .win { --tone: oklch(78% 0.13 300); }
+  .tone-voice   .win { --tone: oklch(80% 0.13 240); }
+
+  .win .tech {
+    font-size: 0.775rem;
+    color: var(--faint);
+    line-height: 1.4;
+    margin-top: 0.55rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid var(--line-2);
+  }
+  .mitem .tech {
+    font-size: 0.75rem;
+    color: var(--faint);
+    line-height: 1.4;
+    margin-top: 0.45rem;
+    padding-left: 0.65rem;
+    border-left: 1px solid var(--line-2);
+  }
+
+  /* refs - Shortcut story + PR, for whoever wants to go look it up */
+  .refs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.32rem;
+    margin-top: auto;
+    padding-top: 0.95rem;
+    border-top: 1px solid var(--line);
+  }
+  .ref {
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--faint);
+    background: oklch(100% 0 0 / 0.04);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.16rem 0.42rem;
+    white-space: nowrap;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+  .win:hover .ref { color: var(--muted); border-color: var(--line-2); }
+  .ref.story { color: var(--accent-2); opacity: 0.72; }
+  .win:hover .ref.story { opacity: 1; }
+
+  /* the quiet line at the bottom - detail for whoever asks, not for the room */
+  .footnote {
+    margin-top: clamp(1rem, 2vw, 1.5rem);
+    font-size: 0.84rem;
+    color: var(--faint);
+    max-width: 90ch;
+    line-height: 1.5;
+  }
+  .footnote b { color: var(--muted); font-weight: 500; }
+
+  /* ============================================================
+     Stat strip
+     ============================================================ */
+  .stats {
+    display: grid;
+    gap: 0.9rem 1.4rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: clamp(1.2rem, 2.5vw, 1.8rem);
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--line);
+  }
+  @media (min-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); max-width: 34rem; } }
+  .stat .n {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat .l { font-size: 0.78rem; color: var(--faint); margin-top: 0.3rem; line-height: 1.3; }
+
+  /* ============================================================
+     Closing slide - what is in review right now
+     ============================================================ */
+  .motion {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: 1fr;
+    margin-top: clamp(1.3rem, 2.8vw, 2rem);
+  }
+  @media (min-width: 900px) { .motion { grid-template-columns: repeat(3, 1fr); } }
+  .mitem {
+    display: flex;
+    flex-direction: column;
+    padding: 1.1rem 1.2rem 1.15rem;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: linear-gradient(150deg, oklch(72% 0.15 275 / 0.10), var(--surface));
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .mitem:hover { transform: translateY(-3px); border-color: var(--line-2); }
+  .mitem h5 { font-size: 1rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.4rem; }
+  .mitem p { font-size: 0.875rem; color: var(--muted); line-height: 1.45; }
+  .mitem .refs { border-top-color: var(--line); }
+
+  .pillbox {
+    margin-top: clamp(1.2rem, 2.4vw, 1.8rem);
+    display: block;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    background: linear-gradient(100deg, oklch(72% 0.15 275 / 0.16), oklch(74% 0.14 190 / 0.10));
+    border: 1px solid var(--line-2);
+    font-size: 0.92rem;
+    color: var(--muted);
+    max-width: 78ch;
+    line-height: 1.45;
+  }
+  .pillbox b { color: var(--text); font-weight: 600; }
+
+  /* ============================================================
+     Chrome - progress, counter, nav, hint
+     ============================================================ */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent), var(--accent-3));
+    z-index: 20;
+    transition: width 0.5s var(--ease);
+    box-shadow: 0 0 12px oklch(72% 0.15 275 / 0.6);
+  }
+  .counter {
+    position: fixed; bottom: 1.4rem; right: 1.6rem; z-index: 20;
+    font-size: 0.82rem; color: var(--faint); letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+  }
+  .counter b { color: var(--text); font-weight: 600; }
+  .logo {
+    position: fixed; top: 1.15rem; left: 1.6rem; z-index: 21;
+    height: 30px; width: auto; display: block; opacity: 0.95;
+  }
+
+  .nav { position: fixed; bottom: 1.15rem; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; gap: 0.5rem; align-items: center; }
+  .nav button {
+    width: 2.2rem; height: 2.2rem; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line-2); color: var(--text);
+    cursor: pointer; display: grid; place-items: center;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+  }
+  .nav button:hover { background: var(--surface-2); border-color: var(--accent); transform: translateY(-2px); }
+  .nav button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+  .nav button:active { transform: translateY(0); }
+  .nav button svg { width: 1.1rem; height: 1.1rem; }
+  .dots { display: flex; gap: 0.4rem; padding: 0 0.5rem; }
+  .dots i {
+    width: 0.42rem; height: 0.42rem; border-radius: 50%;
+    background: var(--line-2); cursor: pointer;
+    transition: all 0.25s var(--ease);
+  }
+  .dots i.on { background: var(--accent-2); width: 1.3rem; border-radius: 999px; }
+
+  .hint {
+    position: fixed; bottom: 1.4rem; left: 1.6rem; z-index: 20;
+    font-size: 0.76rem; color: var(--faint);
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: opacity 0.6s var(--ease);
+  }
+  .hint kbd {
+    font-family: var(--sans); font-size: 0.7rem;
+    border: 1px solid var(--line-2); border-radius: 5px;
+    padding: 0.1rem 0.4rem; color: var(--muted);
+  }
+
+  /* short screens (projectors, laptops at 720p) - tighten instead of cropping */
+  @media (max-height: 1000px) {
+    .slide { overflow-y: auto; scrollbar-width: thin; }
+    h2 { font-size: clamp(1.7rem, 3.1vw, 2.7rem); }
+    .lede { font-size: clamp(0.95rem, 1.05vw, 1.12rem); }
+    .wins { margin-top: 0.9rem; gap: 0.6rem; }
+    .win { padding: 0.85rem 1rem 0.95rem; }
+    .win h4 { font-size: clamp(0.99rem, 1.2vw, 1.16rem); margin-bottom: 0.4rem; }
+    .win.feature h4 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+    .win p { font-size: clamp(0.89rem, 0.98vw, 1rem); }
+    .win .tech, .mitem .tech { font-size: 0.735rem; margin-top: 0.42rem; }
+    .refs { padding-top: 0.7rem; }
+    .footnote { margin-top: 0.85rem; font-size: 0.78rem; }
+    .stats { margin-top: 0.9rem; padding-top: 0.8rem; }
+    .stat .n { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+    .motion { gap: 0.6rem; margin-top: 0.9rem; }
+    .mitem { padding: 0.85rem 1rem 0.95rem; }
+    .idea-num { font-size: clamp(1.9rem, 4vw, 3.4rem); top: 1rem; }
+  }
+
+  @media (max-height: 880px) {
+    .slide {
+      justify-content: flex-start;
+      padding-top: clamp(2.6rem, 5vh, 3.4rem);
+      padding-bottom: clamp(3.4rem, 7vh, 4.5rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hint { display: none; }
+    .logo { top: 1rem; left: 1.1rem; height: 24px; }
+    .slide {
+      padding: 3.6rem 1.3rem 6.5rem;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+    .idea-num { display: none; }
+    .counter { top: 1.05rem; right: 1.2rem; left: auto; bottom: auto; }
+    .nav .dots { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <main class="deck" id="deck">
+
+    <!-- 1 · THE HEADLINE: HUMAN HANDOFF -->
+    <section class="slide tone-call" id="s-handoff" aria-label="A human can now step into the call">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 190 / 0.42);">01</div>
+      <span class="eyebrow" data-rise="1">Thu Aug 13 to Thu Aug 20 · what our clients get</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A human can now <em class="serif-i">step into</em> the call.</h2>
+      <p class="lede" data-rise="1">The week's flagship. When a conversation gets serious, a real AE takes over from the AI, live, on the same call.</p>
+
+      <div class="wins featured" data-rise="2">
+        <div class="win feature">
+          <div class="area">Calls · Human handoff</div>
+          <h4>Say the passphrase, take the call</h4>
+          <p>An AE listening in speaks a passphrase and the agent goes quiet. Same call, same room. No transfer, no callback, no "let me get my colleague."</p>
+          <p class="tech">The spoken passphrase is the only thing that hands the call over. It survives contractions, and a missed match says so instead of guessing. The bot silences instead of exiting, so the recording and transcript keep running through the takeover.</p>
+          <div class="refs"><span class="ref story">sc-91147</span><span class="ref">dash #2046</span><span class="ref">bot #779</span><span class="ref">bot #736</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Dashboard · Waiting room</div>
+          <h4>AEs see the calls worth joining</h4>
+          <p>A live waiting room lists calls ready for a human, with listen-in before committing.</p>
+          <p class="tech">The AE joins under their own name, not "Human Specialist". An escalation-enabled agent is enough to qualify, and calls that ended long ago are reaped instead of listed.</p>
+          <div class="refs"><span class="ref story">sc-91147</span><span class="ref">dash #2046</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Web · Availability CTA</div>
+          <h4>A page can offer "talk to a human now"</h4>
+          <p>The button shows only when an AE is actually free to take the call.</p>
+          <p class="tech">A JavaScript smart link hands the publisher the availability state and nothing else. No iframe, no markup, and the snippet is validated as real JavaScript.</p>
+          <div class="refs"><span class="ref">dash #2046</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Avatar · Handoff</div>
+          <h4>The takeover sounds deliberate</h4>
+          <p>The caller hears the handoff cue before the avatar goes quiet, not after.</p>
+          <p class="tech">Hibernate silences the avatar instead of killing the process that holds the room, so the video room survives the handoff.</p>
+          <div class="refs"><span class="ref">bot #779</span></div>
+        </div>
+      </div>
+
+      <div class="stats" data-rise="4">
+        <div class="stat"><div class="n">116</div><div class="l">changes shipped to production</div></div>
+        <div class="stat"><div class="n">59</div><div class="l">pull requests merged</div></div>
+      </div>
+    </section>
+
+    <!-- 2 · THE CONVERSATION -->
+    <section class="slide tone-voice" id="s-voice" aria-label="The agent got easier to talk to">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 240 / 0.42);">02</div>
+      <span class="eyebrow" data-rise="1">Voice, hearing &amp; vision</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The agent got easier to <em class="serif-i">talk to.</em></h2>
+      <p class="lede" data-rise="1">Four senses tuned this week: how it sounds, how it hears, how consistent it stays, and what it sees.</p>
+
+      <div class="wins" data-rise="2">
+        <div class="win">
+          <div class="area">Web calls · Audio</div>
+          <h4>The voice stopped stuttering</h4>
+          <p>Web-call audio plays smoothly, and interrupting the agent cuts it off instantly.</p>
+          <p class="tech">The bot's RTC audio now runs through a real jitter buffer, flushed on barge-in so an interruption does not drain stale audio first.</p>
+          <div class="refs"><span class="ref story">sc-91636</span><span class="ref">bot #776</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Avatar calls · Hearing</div>
+          <h4>It hears you over its own ambience</h4>
+          <p>Background ambience no longer deafens the agent to the caller.</p>
+          <p class="tech">Ambience playback was starving the inbound audio consumer, so the agent literally stopped receiving the caller's voice.</p>
+          <div class="refs"><span class="ref story">sc-92127</span><span class="ref">bot #790</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Voice · Consistency</div>
+          <h4>One call, one voice</h4>
+          <p>The voice no longer changes mid-call, and quiet callers stop getting the same nudge on repeat.</p>
+          <p class="tech">The TTS cache key was blind to prosody, so a cache hit could answer in the wrong voice. Inactivity follow-ups are deduplicated.</p>
+          <div class="refs"><span class="ref story">sc-92120</span><span class="ref">bot #788</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Video calls · Vision</div>
+          <h4>It sees the caller's camera again</h4>
+          <p>What the caller shows on camera reaches the agent's eyes once more.</p>
+          <p class="tech">LiveKit started delivering frame planes as memoryviews and the frame reader assumed bytes, so vision silently got nothing.</p>
+          <div class="refs"><span class="ref story">sc-92118</span><span class="ref">bot #787</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Also on calls: every call starts about five seconds sooner <b>(bot master)</b>, a transfer is announced before it happens instead of mid-sentence <b>(sc-90983 · bot #718)</b>, spoken lists no longer read their markdown out loud <b>(bot #734)</b>, booking a meeting by voice works on phone calls and over a shown calendar <b>(bot #752)</b>, and spelled-out names and emails are captured by sequence agents too <b>(sc-91359 · bot #763)</b>.</p>
+    </section>
+
+    <!-- 3 · INTEGRATIONS & API -->
+    <section class="slide tone-data" id="s-data" aria-label="It plugs into more, and writes back">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">03</div>
+      <span class="eyebrow" data-rise="1">Integrations, marketplace &amp; the public API</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">It plugs into more, <em class="serif-i">and writes back.</em></h2>
+      <p class="lede" data-rise="1">Last month we built the connectors. This week they got a storefront, and the agent learned to use them mid-call.</p>
+
+      <div class="wins" data-rise="2">
+        <div class="win">
+          <div class="area">Marketplace · Hub</div>
+          <h4>Every integration, one Marketplace Hub</h4>
+          <p>Clients browse, install and manage all their integrations in one place.</p>
+          <p class="tech">All marketplace integrations consolidated behind the connector registry from last month's Pipedrive and HubSpot work.</p>
+          <div class="refs"><span class="ref">dash #2030</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Agents · CRM writes</div>
+          <h4>The agent writes to their tools, live on the call</h4>
+          <p>The CRM updates a client switches on now run during the conversation, not after it.</p>
+          <p class="tech">The bot executes the writes the owner activated, and a routine's write no longer trips over its own provider.</p>
+          <div class="refs"><span class="ref">dash #2084</span><span class="ref">bot #777</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Integrations · Actions</div>
+          <h4>AI-built actions are inspectable</h4>
+          <p>Actions the AI generated can be viewed and edited before a call ever runs them.</p>
+          <p class="tech">The integration action editor exposes the generated definition instead of treating it as a black box.</p>
+          <div class="refs"><span class="ref">dash #2053</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Public API · V2</div>
+          <h4>The public API grew up</h4>
+          <p>Partners can pull conversations, push leads into campaigns, and cannot take us down doing it.</p>
+          <p class="tech">Conversations endpoints with a permanent /calls alias, an add-lead-to-campaign endpoint, and a 60 requests per minute rate limit per token.</p>
+          <div class="refs"><span class="ref story">sc-79831</span><span class="ref">dash #1900</span><span class="ref story">sc-91161</span><span class="ref">dash #2054</span><span class="ref story">sc-91346</span><span class="ref">dash #2065</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Also: the demo.completed webhook now carries enriched lead fields, so a client's automation gets the whole picture <b>(sc-78966 · dash #1715)</b>, and the copilot's credential modal renders above the Sky dock instead of behind it <b>(dash #2052)</b>.</p>
+    </section>
+
+    <!-- 4 · TRUST & PRODUCT -->
+    <section class="slide tone-product" id="s-product" aria-label="Trust, from signup to the video room">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">04</div>
+      <span class="eyebrow" data-rise="1">Signup, trust &amp; day-to-day use</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Trust, from signup to <em class="serif-i">the video room.</em></h2>
+      <p class="lede" data-rise="1">The paper trail enterprise buyers ask about, and the polish their teams notice.</p>
+
+      <div class="wins featured" data-rise="2">
+        <div class="win feature">
+          <div class="area">Signup · Consent</div>
+          <h4>Every signup now records consent</h4>
+          <p>Terms agreement is captured at signup and stored as a record that cannot be quietly edited. The audit trail legal and enterprise buyers ask for.</p>
+          <p class="tech">Full epic across the signup flow. The consent record's immutability is enforced in the application layer after database triggers broke the production migration, and onboarding also gained a logout button so a stuck signup is escapable.</p>
+          <div class="refs"><span class="ref story">sc-79370</span><span class="ref story">sc-79378</span><span class="ref">dash #1909</span><span class="ref">dash #2107</span><span class="ref story">sc-90271</span><span class="ref">dash #1945</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Video calls · Presence</div>
+          <h4>Blur and branded backgrounds</h4>
+          <p>Anyone joining a video call can blur their room or pick a company-curated background, previewed live.</p>
+          <p class="tech">MediaPipe soft-confidence mask compositing, chosen over a paid effects SDK after comparing edge quality. Hidden on mobile, where it cannot keep up.</p>
+          <div class="refs"><span class="ref">dash master</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Whitelabel</div>
+          <h4>A whitelabel link stays theirs</h4>
+          <p>Share-call links no longer show app.salescloser.ai to a whitelabel client's customers.</p>
+          <p class="tech">The Share Call modal resolves the client's own domain instead of hardcoding ours.</p>
+          <div class="refs"><span class="ref">dash #1882</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Models · GPT-5.x</div>
+          <h4>The newest models, one switch away</h4>
+          <p>GPT-5.x can be enabled per client, with a backup setting if the primary misbehaves.</p>
+          <p class="tech">Reasoning tiers and backup effort in app settings, with the bot prepared for the GPT-5.x parameter surface.</p>
+          <div class="refs"><span class="ref story">sc-92154</span><span class="ref">dash #2102</span><span class="ref">bot #799</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Agents · Conditional prompts</div>
+          <h4>Conditional prompts survive a duplicate</h4>
+          <p>Cloning an agent keeps its conditional prompts, and the editor stopped fighting you.</p>
+          <p class="tech">Identifiers auto-format as you type, and every card carries its own Edit and Delete.</p>
+          <div class="refs"><span class="ref">dash #2083</span><span class="ref story">sc-92143</span><span class="ref">dash #2101</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Also: Add to Campaign opens from the Leads page again <b>(sc-78921 · dash #1706)</b>, compliance settings save without a 500 <b>(sc-91325 · dash #2060)</b>, and the prompt editor's textareas grow so Ctrl+F actually finds things <b>(sc-91148 · dash #2050)</b>.</p>
+    </section>
+
+    <!-- 5 · MEASUREMENT & RELIABILITY -->
+    <section class="slide tone-ops" id="s-ops" aria-label="We grade our own calls now">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 300 / 0.42);">05</div>
+      <span class="eyebrow" data-rise="1">Call quality, measurement &amp; reliability</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">We grade our <em class="serif-i">own calls</em> now.</h2>
+      <p class="lede" data-rise="1">A bad call should tell on itself before a client has to.</p>
+
+      <div class="wins" data-rise="2">
+        <div class="win">
+          <div class="area">Quality · Audio</div>
+          <h4>Choppy audio lowers the call score</h4>
+          <p>A call that sounded rough surfaces itself instead of hiding in the average.</p>
+          <p class="tech">Gemini-detected audio choppiness is weighed into the call quality score.</p>
+          <div class="refs"><span class="ref story">sc-91094</span><span class="ref">dash #2056</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Quality · Speed</div>
+          <h4>Response speed has a dashboard tile</h4>
+          <p>We can see which calls answered from cache and which paid full price in latency.</p>
+          <p class="tech">LLM cache hit rate recorded per call in the latency tracker, shown as a tile and a sortable column in call analysis.</p>
+          <div class="refs"><span class="ref">dash #2037</span><span class="ref">bot #727</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Phone calls · Reliability</div>
+          <h4>A killed call hangs up the phone</h4>
+          <p>Nobody sits on a silent line when a call process dies.</p>
+          <p class="tech">The process supervisor tells Twilio to hang up whenever a phone call is killed abnormally.</p>
+          <div class="refs"><span class="ref">bot #775</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Monitoring · Overhead</div>
+          <h4>Monitoring stopped taxing live calls</h4>
+          <p>Watching for leaks no longer slows the thing being watched.</p>
+          <p class="tech">The leak guard's deep memory walks moved off the /metrics hot path, and the S3 backup path reuses its client and skips unchanged files.</p>
+          <div class="refs"><span class="ref story">sc-92225</span><span class="ref">bot #805</span><span class="ref">bot #754</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Honest note: we shipped process-per-call isolation to kill cross-call interference, measured it in production, and rolled it back while keeping the unrelated fixes it bundled <b>(bot #714 · bot #782)</b>. Full LLM debug dumps are now opt-in, so logs stay lean and safe <b>(bot #753 · bot #735)</b>.</p>
+    </section>
+
+    <!-- 6 · IN REVIEW RIGHT NOW -->
+    <section class="slide" id="s-next" aria-label="Already in the review queue">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.16 330 / 0.42);">06</div>
+      <span class="eyebrow" data-rise="1">In review right now · not shipped yet</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Already in the <span class="grad">review queue.</span></h2>
+      <p class="lede" data-rise="1">Built, tested, and going through adversarial review. None of this is live yet; all of it is close.</p>
+
+      <div class="motion" data-rise="2">
+        <div class="mitem">
+          <h5>A/B testing for agent prompts</h5>
+          <p>Run two prompts against live traffic, route calls between variants, and let statistics pick the winner instead of a hunch.</p>
+          <p class="tech">Variant routing with client scoping, a restartable test lifecycle, and a Welch t-test on the results.</p>
+          <div class="refs"><span class="ref">dash branch</span></div>
+        </div>
+        <div class="mitem">
+          <h5>The agent drives the client's website</h5>
+          <p>On a web call, the agent navigates pages, scrolls to the right section, and fills forms with the visitor, mid-conversation.</p>
+          <p class="tech">Page navigation, scroll and form tools over the widget transport, with fuzzy option matching that refuses ambiguous picks.</p>
+          <div class="refs"><span class="ref story">sc-74650</span><span class="ref story">sc-76295</span></div>
+        </div>
+        <div class="mitem">
+          <h5>Campaign costs, before you press launch</h5>
+          <p>A campaign's estimated cost shows in credits at launch time, and the stat tile prices actual minutes afterward.</p>
+          <p class="tech">The estimate renders as labeled rows in the launch dialog, validated through a Form Request.</p>
+          <div class="refs"><span class="ref">dash branch</span></div>
+        </div>
+      </div>
+
+      <p class="pillbox" data-rise="3"><b>How to read this deck:</b> everything on slides 1 to 5 is on production today. Every card carries its Shortcut story and pull request, so anyone can go read the original.</p>
+    </section>
+
+  </main>
+
+  <!-- chrome -->
+  <div class="hint" id="hint"><kbd>&larr;</kbd><kbd>&rarr;</kbd> or <kbd>Space</kbd> to navigate · <kbd>F</kbd> fullscreen</div>
+  <img class="logo" src="data:image/png;base64,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" alt="SalesCloser" width="33" height="30" />
+  <div class="counter"><b id="cur">01</b> / <span id="total">06</span></div>
+  <nav class="nav" aria-label="Slide navigation">
+    <button id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="dots" id="dots"></div>
+    <button id="next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </nav>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+
+  const progress = document.getElementById('progress');
+  const cur = document.getElementById('cur');
+  const dotsWrap = document.getElementById('dots');
+  const hint = document.getElementById('hint');
+  document.getElementById('total').textContent = String(total).padStart(2, '0');
+
+  slides.forEach((_, n) => {
+    const d = document.createElement('i');
+    d.addEventListener('click', () => go(n));
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    progress.style.width = ((i + 1) / total * 100) + '%';
+    cur.textContent = String(i + 1).padStart(2, '0');
+    if (hint) hint.style.opacity = i > 0 ? '0' : '';
+  }
+  const next = () => go(i + 1);
+  const prev = () => go(i - 1);
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(total - 1);
+    else if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
+    }
+  });
+
+  // touch swipe
+  let x0 = null;
+  addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive: true });
+  addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) (dx < 0 ? next() : prev());
+    x0 = null;
+  }, { passive: true });
+
+  go(0);
+</script>
+</body>
+</html>
