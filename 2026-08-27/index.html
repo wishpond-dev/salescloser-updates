@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>SalesCloser · What Shipped for Our Clients · Aug 20 to 27</title>
+<style>
+  /* ============================================================
+     Fonts - loaded when online, graceful system fallback offline
+     ============================================================ */
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    /* palette - dark luxury / editorial (shared with the Freedom deck) */
+    --bg:        oklch(15% 0.018 265);
+    --surface:   oklch(23% 0.02 265 / 0.6);
+    --surface-2: oklch(27% 0.022 265 / 0.5);
+    --line:      oklch(100% 0 0 / 0.09);
+    --line-2:    oklch(100% 0 0 / 0.14);
+    --text:      oklch(96% 0.005 265);
+    --muted:     oklch(72% 0.015 265);
+    --faint:     oklch(58% 0.015 265);
+    --accent:    oklch(72% 0.15 275);
+    --accent-2:  oklch(80% 0.13 85);
+    --accent-3:  oklch(74% 0.14 190);
+    --good:      oklch(78% 0.15 155);
+
+    --serif: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: clamp(15px, 0.6vw + 12px, 18px);
+    line-height: 1.5;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* atmospheric glows + faint grain for depth */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(60% 55% at 82% 12%, oklch(72% 0.15 275 / 0.20), transparent 70%),
+      radial-gradient(55% 50% at 8% 92%, oklch(74% 0.14 190 / 0.14), transparent 72%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ============================================================
+     Deck + slides
+     ============================================================ */
+  .deck { position: relative; height: 100dvh; width: 100vw; z-index: 1; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 6rem);
+    max-width: 1480px;
+    margin-inline: auto;
+  }
+  .slide.is-active { display: flex; animation: rise 0.6s var(--ease) both; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide.is-active { animation: none; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  .slide.is-active [data-rise] { animation: rise 0.6s var(--ease) both; }
+  .slide.is-active [data-rise="1"] { animation-delay: 0.06s; }
+  .slide.is-active [data-rise="2"] { animation-delay: 0.13s; }
+  .slide.is-active [data-rise="3"] { animation-delay: 0.20s; }
+  .slide.is-active [data-rise="4"] { animation-delay: 0.27s; }
+
+  /* ============================================================
+     Typography
+     ============================================================ */
+  .eyebrow {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.8rem;
+    height: 1px;
+    background: var(--accent-2);
+    opacity: 0.7;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: clamp(1rem, 1.25vw, 1.28rem);
+    color: var(--muted);
+    max-width: 68ch;
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+  .grad {
+    background: linear-gradient(105deg, var(--accent-2), var(--accent) 55%, var(--accent-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  em.serif-i { font-style: italic; color: var(--accent-2); }
+
+  .idea-num {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 7vw, 6rem);
+    line-height: 1;
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--line-2);
+    letter-spacing: -0.03em;
+    position: absolute;
+    top: clamp(1.2rem, 4vw, 2.6rem);
+    right: clamp(1.4rem, 6vw, 6rem);
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     Wins - the core component: what changed / why a client feels it
+     ============================================================ */
+  .wins {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: 1fr;
+    margin-top: clamp(1.4rem, 3vw, 2.4rem);
+  }
+  @media (min-width: 860px) { .wins { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1240px) { .wins { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1100px) {
+    .wins.featured { grid-template-columns: repeat(3, 1fr); }
+    .wins.featured .win.feature { grid-column: span 2; }
+  }
+  .win.feature {
+    background: linear-gradient(140deg, oklch(78% 0.15 155 / 0.13), var(--surface) 60%);
+    border-left-width: 3px;
+  }
+  .win.feature h4 { font-size: clamp(1.2rem, 1.7vw, 1.6rem); }
+  .win.feature > p:not(.tech) { font-size: clamp(1rem, 1.15vw, 1.18rem); }
+
+  .win {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--tone, var(--accent));
+    border-radius: 14px;
+    padding: 1.3rem 1.4rem 1.45rem;
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  .win:hover {
+    transform: translateY(-4px);
+    border-top-color: var(--line-2);
+    border-right-color: var(--line-2);
+    border-bottom-color: var(--line-2);
+    background: var(--surface-2);
+  }
+  .win .area {
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tone, var(--accent-3));
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+  }
+  .win h4 {
+    font-family: var(--sans);
+    font-size: clamp(1.05rem, 1.35vw, 1.32rem);
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.55rem;
+  }
+  .win p {
+    font-size: clamp(0.94rem, 1.05vw, 1.08rem);
+    color: var(--tone, var(--accent-3));
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  /* per-slide tone */
+  .tone-call    .win { --tone: oklch(78% 0.13 190); }
+  .tone-data    .win { --tone: oklch(83% 0.12 85); }
+  .tone-product .win { --tone: oklch(80% 0.14 155); }
+  .tone-ops     .win { --tone: oklch(78% 0.13 300); }
+  .tone-voice   .win { --tone: oklch(80% 0.13 240); }
+
+  .win .tech {
+    font-size: 0.775rem;
+    color: var(--faint);
+    line-height: 1.4;
+    margin-top: 0.55rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid var(--line-2);
+  }
+  .mitem .tech {
+    font-size: 0.75rem;
+    color: var(--faint);
+    line-height: 1.4;
+    margin-top: 0.45rem;
+    padding-left: 0.65rem;
+    border-left: 1px solid var(--line-2);
+  }
+
+  /* refs - Shortcut story + PR, for whoever wants to go look it up */
+  .refs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.32rem;
+    margin-top: auto;
+    padding-top: 0.95rem;
+    border-top: 1px solid var(--line);
+  }
+  .ref {
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--faint);
+    background: oklch(100% 0 0 / 0.04);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.16rem 0.42rem;
+    white-space: nowrap;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+  .win:hover .ref { color: var(--muted); border-color: var(--line-2); }
+  .ref.story { color: var(--accent-2); opacity: 0.72; }
+  .win:hover .ref.story { opacity: 1; }
+
+  /* the quiet line at the bottom - detail for whoever asks, not for the room */
+  .footnote {
+    margin-top: clamp(1rem, 2vw, 1.5rem);
+    font-size: 0.84rem;
+    color: var(--faint);
+    max-width: 90ch;
+    line-height: 1.5;
+  }
+  .footnote b { color: var(--muted); font-weight: 500; }
+
+  /* ============================================================
+     Stat strip
+     ============================================================ */
+  .stats {
+    display: grid;
+    gap: 0.9rem 1.4rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: clamp(1.2rem, 2.5vw, 1.8rem);
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--line);
+  }
+  @media (min-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); max-width: 34rem; } }
+  .stat .n {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat .l { font-size: 0.78rem; color: var(--faint); margin-top: 0.3rem; line-height: 1.3; }
+
+  /* ============================================================
+     Closing slide - what is in review right now
+     ============================================================ */
+  .motion {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: 1fr;
+    margin-top: clamp(1.3rem, 2.8vw, 2rem);
+  }
+  @media (min-width: 900px) { .motion { grid-template-columns: repeat(3, 1fr); } }
+  .mitem {
+    display: flex;
+    flex-direction: column;
+    padding: 1.1rem 1.2rem 1.15rem;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: linear-gradient(150deg, oklch(72% 0.15 275 / 0.10), var(--surface));
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .mitem:hover { transform: translateY(-3px); border-color: var(--line-2); }
+  .mitem h5 { font-size: 1rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.4rem; }
+  .mitem p { font-size: 0.875rem; color: var(--muted); line-height: 1.45; }
+  .mitem .refs { border-top-color: var(--line); }
+
+  .pillbox {
+    margin-top: clamp(1.2rem, 2.4vw, 1.8rem);
+    display: block;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    background: linear-gradient(100deg, oklch(72% 0.15 275 / 0.16), oklch(74% 0.14 190 / 0.10));
+    border: 1px solid var(--line-2);
+    font-size: 0.92rem;
+    color: var(--muted);
+    max-width: 78ch;
+    line-height: 1.45;
+  }
+  .pillbox b { color: var(--text); font-weight: 600; }
+
+
+  /* ============================================================
+     Crew badges - who built each slide (avatars embedded, offline-safe)
+     ============================================================ */
+  .crew { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; margin-top: clamp(0.9rem, 1.8vw, 1.4rem); }
+  .crew-label { font-size: 0.64rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); margin-right: 0.35rem; }
+  .dev { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.76rem; font-weight: 500; color: var(--muted); background: oklch(100% 0 0 / 0.045); border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.8rem 0.22rem 0.28rem; transition: border-color 0.2s var(--ease), color 0.2s var(--ease); }
+  .dev:hover { border-color: var(--line-2); color: var(--text); }
+  .dev .av { width: 1.55rem; height: 1.55rem; border-radius: 50%; background-size: cover; background-position: center; border: 1px solid var(--line-2); flex: none; }
+  @media (max-height: 1000px) { .crew { margin-top: 0.8rem; } .dev { font-size: 0.72rem; } .dev .av { width: 1.35rem; height: 1.35rem; } }
+  .av-alejandro { background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAOKADAAQAAAABAAAAOAAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAOAA4AwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAwMDAwMDBgMDBggGBgYICwgICAgLDQsLCwsLDRANDQ0NDQ0QEBAQEBAQEBMTExMTExcXFxcXGhoaGhoaGhoaGv/bAEMBBAQEBgYGCwYGCxsSDxIbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbG//dAAQABP/aAAwDAQACEQMRAD8A/RDXddtPD9ot7eq7KzhAEAJyQT3I9K5P/hZ2gf8APK4/75X/AOKq/wCPtMv9V0eO306IyuJgxVcdNrDPNeMXfhfxBYWz3d5avHGgyzHGBzjsa93L8HhatJOq/ev3OilTg1qesf8ACztA/wCeVx/3yv8A8VR/ws7QP+eVx/3yv/xVeFIjSOI0GSxAA9zXTf8ACF+Kc4+xSfmv+Nd88qwcPjdvmaujTW56f/ws7QP+eVx/3yv/AMVR/wALO0D/AJ5XH/fK/wDxVeFyI8UjRSDDKSpHoRwa27Pwxr+oWy3lnavJE+drDGDg47n1pzynBxV5O3zB0YLc+hNB16z8Q2rXdkrqqPsIcAHOAexPrW3XC+ANL1DSdJlg1GIxO0xYBscjaBnjPpXdV81ioQhVlGm9DkmkpNI//9D9JpZ4Ldd87qgJxliAM/jXI+MLu0ufDV3BbSpI7KoVUYMx+YdADk1l/E/H9gRZ/wCfhf8A0Fq8u8F4/wCEpssdfMP/AKCa9rA4BOl9a5vh1t6anRTp6c5m2Vlei9hJhkwJE/gb+8Pavqv+L8aPm96bXJj8e8S4txtYipU5z5Y1GyvTqNwRDIQZX/gb+8favc/Bl3aW3hq1guZUjdQ2VdgrD5z1BORXbfN7181eOMf8JXebuu5f/QFr06db+0V7Brltr38v1NVL2vus+jop4Lhd9u6yAHGVIIz+FS15r8L8f2HPj/n4P/oK16VXiYqj7KrKmnexzzjyto//0f0knt7e6Ty7mNZFBzhwGGfoa5HxdY2Vn4curm0hjikRQVdFCsPmHQgZFdpVW9srbUbV7K8XfFIMMuSM856jmtqFXknGT2TKjKzR8x2Wo6ib2EG4lIMifxt/eHvX1R/F+NcmngjwvG6yJagMpBB3P1HI711eec125njKeIcXTVrXNKtRStY+WtR1HUV1C4VbiUASuAA7f3j717d4OsbK88N21zeQxyyOG3PIoZj8xHJIJNXZPBPhiWRpZLUFnJYnc/JPJ71v2Nja6bapZWSbIkztXJOMnPU89a2x2Y06tJQpJpodSqpKyJILa3tVKW0axqTkhAFGfwqaiivHbb1Zgf/S/SqiiigAooooAKKKKACiiigD/9k="); }
+  .av-paulo { background-image: url("data:image/jpeg;base64,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"); }
+  .av-igor { background-image: url("data:image/jpeg;base64,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"); }
+  .av-amir { background-image: url("data:image/jpeg;base64,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"); }
+  .av-gabriel { background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAOKADAAQAAAABAAAAOAAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAOAA4AwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAwMDAwMDBgMDBggGBgYICwgICAgLDQsLCwsLDRANDQ0NDQ0QEBAQEBAQEBMTExMTExcXFxcXGhoaGhoaGhoaGv/bAEMBBAQEBgYGCwYGCxsSDxIbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbG//dAAQABP/aAAwDAQACEQMRAD8A/NWiiiugzCiiigAooooAKKKKAP/Q/NWiiiugzCiiigAooooAKKKKAP/R/NWiiiugzCiiigAooooAKKKKAP/S/NWiiiugzCiiigAooooAKKKKAP/Z"); }
+  .av-david { background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAOKADAAQAAAABAAAAOAAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAOAA4AwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAwMDAwMDBgMDBggGBgYICwgICAgLDQsLCwsLDRANDQ0NDQ0QEBAQEBAQEBMTExMTExcXFxcXGhoaGhoaGhoaGv/bAEMBBAQEBgYGCwYGCxsSDxIbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbG//dAAQABP/aAAwDAQACEQMRAD8A/PCWBVhfGcjBP511fh7x1qnhqxFlaxxMgfflwScn6VSvLOSOF2kGAwyPfmsWaylkhAjIyQGFc1J3RviFyzaPTB8Z/FUjpsEUao27Kx5598nmovE/iLW/FYXVtQkSdwu0BAFCg9eB3ryQJqXnm1jVmk/uqCT+QrRh03XY4muTa3BiH3nEbYUj1OO1U5W0IVNysz7wllspvgsIVYEnTFAGOdwAr5TltZ7ZXubaSSM7OdjEZAHTivYPhH4y1DX/AATrXg/U3WRbOxMlsWXD7Rwyk9wuRjPPNedS2UdwSsmcFAMAkdRVxehz1VyyPG5dUvXHmxzNGD1AY1W/tS//AOfmT/vpq71vBmnIzlgSM/INx6e9R/8ACI6f/c/U1Q1Vgf/Q+KNQtnS1cMcgDA/Os62jXan0/rXUaw63iulnC6AkhEIOevSq1j4Z8SS7dllP/wB+zXJh78pvmDtV+R6b8H7zQ9Avr/WdcVlDOiLIsbPgBR1IBxkmvqa78b+CdPtIY7l90d2u6JViJD5/DH514d8M7bQrbTrqy8bRRwyWcgdVnwuNyAqeT3r0PSPHPwu8QJbaXK0U3kcYkG3HznGzP3hn0+tcc5tTdz2sLTToxt2PNoNIjs/ijql1p0Xk2l7ok8wQLt9FIx25Ga8xVcscf3R/KvrNl0zVdV11tNVCLPTFiBjxwz+YQgx04HI+lfL48M6+6q/2G5yVHRTXdh03C54mYqMazSOduSO9UtwrUvfDPiMZAsbj8Qay/wDhGPE3/PjPW/LLsefdH//R4KbT9MS9E1kVjA+YZQMcg8da6ywvbpRte6b/AL5FY+nme4AL2ULMT/ef/CvpTwz4B0+2s1udXt4muCAdi5Kr7c9SK2pqOyRnK7d2fBfxr0y6stasfFSAzQTqI381MozxHIBHQ8GuPfxhLq+iPpslvZlukTJCqmMei4FfpN448Eaf4x0xNMu4YysD74ww+U5BUrgcjg9R3rxnw98CvDsWsPHY2rwtAMu0pZkUt90KOjeo5wBXnYrDtz0R6+Er8lOzZD8Gvhnr1h4DbVyzm41KQyOobawROExn154re1OzvNO/d6kLqM/7RIH4HpX0tpFqbCxSw2qEhUKmO4HrVqeOOZTHMoZTwQwyPyr0KUFGKieZWfPNz7nw9rjv9kkez8xpQpKBnOCfevOftfi7/ngn/fbV9jePNDk0rZfaOIo4W+WRWjDBW7EegP8AOvNPP1X/AJ62/wD37X/Gqdjn5JH/0vKfhD8Krw+NbK+vtQvJYrUm4aJ3Oxyn3QRnkbiDj2r9CBIojDV84fC7/kNH/rif/QhX0Mv+p/Gu3lS2MaburssKob5mq2gVIlA6k1UX7tWz91frUPoaXJlPHNNYjGaQdKR/uUAcr4u8PWHi/wANXnhrVM+RexNGxXhlz0YH1BwRXzD/AMMieBv+f69/7+f/AFq+upOg+lV6dkB//9k="); }
+  .av-ali { background-image: url("data:image/jpeg;base64,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"); }
+  .av-hadi { background-image: url("data:image/jpeg;base64,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"); }
+  .av-junaid { background-image: url("data:image/jpeg;base64,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"); }
+
+  /* ============================================================
+     Chrome - progress, counter, nav, hint
+     ============================================================ */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent), var(--accent-3));
+    z-index: 20;
+    transition: width 0.5s var(--ease);
+    box-shadow: 0 0 12px oklch(72% 0.15 275 / 0.6);
+  }
+  .counter {
+    position: fixed; bottom: 1.4rem; right: 1.6rem; z-index: 20;
+    font-size: 0.82rem; color: var(--faint); letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+  }
+  .counter b { color: var(--text); font-weight: 600; }
+  .logo {
+    position: fixed; top: 1.15rem; left: 1.6rem; z-index: 21;
+    height: 30px; width: auto; display: block; opacity: 0.95;
+  }
+
+  .nav { position: fixed; bottom: 1.15rem; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; gap: 0.5rem; align-items: center; }
+  .nav button {
+    width: 2.2rem; height: 2.2rem; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line-2); color: var(--text);
+    cursor: pointer; display: grid; place-items: center;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+  }
+  .nav button:hover { background: var(--surface-2); border-color: var(--accent); transform: translateY(-2px); }
+  .nav button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+  .nav button:active { transform: translateY(0); }
+  .nav button svg { width: 1.1rem; height: 1.1rem; }
+  .dots { display: flex; gap: 0.4rem; padding: 0 0.5rem; }
+  .dots i {
+    width: 0.42rem; height: 0.42rem; border-radius: 50%;
+    background: var(--line-2); cursor: pointer;
+    transition: all 0.25s var(--ease);
+  }
+  .dots i.on { background: var(--accent-2); width: 1.3rem; border-radius: 999px; }
+
+  .hint {
+    position: fixed; bottom: 1.4rem; left: 1.6rem; z-index: 20;
+    font-size: 0.76rem; color: var(--faint);
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: opacity 0.6s var(--ease);
+  }
+  .hint kbd {
+    font-family: var(--sans); font-size: 0.7rem;
+    border: 1px solid var(--line-2); border-radius: 5px;
+    padding: 0.1rem 0.4rem; color: var(--muted);
+  }
+
+  /* short screens (projectors, laptops at 720p) - tighten instead of cropping */
+  @media (max-height: 1000px) {
+    .slide { overflow-y: auto; scrollbar-width: thin; }
+    h2 { font-size: clamp(1.7rem, 3.1vw, 2.7rem); }
+    .lede { font-size: clamp(0.95rem, 1.05vw, 1.12rem); }
+    .wins { margin-top: 0.9rem; gap: 0.6rem; }
+    .win { padding: 0.85rem 1rem 0.95rem; }
+    .win h4 { font-size: clamp(0.99rem, 1.2vw, 1.16rem); margin-bottom: 0.4rem; }
+    .win.feature h4 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+    .win p { font-size: clamp(0.89rem, 0.98vw, 1rem); }
+    .win .tech, .mitem .tech { font-size: 0.735rem; margin-top: 0.42rem; }
+    .refs { padding-top: 0.7rem; }
+    .footnote { margin-top: 0.85rem; font-size: 0.78rem; }
+    .stats { margin-top: 0.9rem; padding-top: 0.8rem; }
+    .stat .n { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+    .motion { gap: 0.6rem; margin-top: 0.9rem; }
+    .mitem { padding: 0.85rem 1rem 0.95rem; }
+    .idea-num { font-size: clamp(1.9rem, 4vw, 3.4rem); top: 1rem; }
+  }
+
+  @media (max-height: 880px) {
+    .slide {
+      justify-content: flex-start;
+      padding-top: clamp(2.6rem, 5vh, 3.4rem);
+      padding-bottom: clamp(3.4rem, 7vh, 4.5rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hint { display: none; }
+    .logo { top: 1rem; left: 1.1rem; height: 24px; }
+    .slide {
+      padding: 3.6rem 1.3rem 6.5rem;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+    .idea-num { display: none; }
+    .counter { top: 1.05rem; right: 1.2rem; left: auto; bottom: auto; }
+    .nav .dots { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <main class="deck" id="deck">
+
+    <!-- 1 · THE HEADLINE: THE VOICE ENGINE -->
+    <section class="slide tone-voice" id="s-voice" aria-label="The agent found its voice">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 240 / 0.42);">01</div>
+      <span class="eyebrow" data-rise="1">Thu Aug 20 to Thu Aug 27 · what our clients get</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The agent found <em class="serif-i">its voice.</em></h2>
+      <p class="lede" data-rise="1">The week's flagship. The whole speech pipeline was rebuilt: it streams instead of downloading, it speaks every language on the newest voices, and we benchmarked its ears.</p>
+
+      <div class="wins featured" data-rise="2">
+        <div class="win feature">
+          <div class="area">Voice · Streaming</div>
+          <h4>It starts speaking before the sentence is finished</h4>
+          <p>Audio now streams from the voice engine as it is generated instead of being downloaded whole. Every call type — phone, web, video, avatar — rides the new pipe, so replies land noticeably sooner.</p>
+          <p class="tech">A new TTS websocket transport carries every mode, with TTS_TRANSPORT=http kept as a kill switch. Superseded turns drop their in-flight audio, and the pipe was proven with adversarial live-socket tests: reconnects, concurrency, and streaming that outruns the player's drain rate.</p>
+          <div class="refs"><span class="ref story">sc-92515</span><span class="ref">bot #829</span><span class="ref">bot #831</span><span class="ref">bot master</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Voice · Languages</div>
+          <h4>Every language, one modern voice</h4>
+          <p>All languages moved to ElevenLabs v3 Conversational, and follow-up messages now arrive localized in 44 languages.</p>
+          <p class="tech">Expanded STT/TTS coverage, fixed the v3 400s, and stability values snap to the presets v3 actually accepts.</p>
+          <div class="refs"><span class="ref story">sc-92366</span><span class="ref">bot #811</span><span class="ref">bot #828</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Hearing · STT</div>
+          <h4>We benchmarked our ears, then picked the better ones</h4>
+          <p>A new accuracy benchmark settled the debate with data: English agents are back on the transcriber that heard them best.</p>
+          <p class="tech">STT benchmark harness with S3-hosted audio. Verdict: Flux off by default, English returns to nova-3, and a fleet toggle keeps the door open.</p>
+          <div class="refs"><span class="ref">bot #832</span><span class="ref">bot master</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Models · Realtime</div>
+          <h4>OpenAI Realtime, one dropdown away</h4>
+          <p>Agents can now run on OpenAI's speech-to-speech Realtime models, selectable per agent from the dashboard.</p>
+          <p class="tech">Full Realtime API integration in the bot with model selection wired through the dashboard.</p>
+          <div class="refs"><span class="ref">dash #1536</span><span class="ref">bot #483</span></div>
+        </div>
+      </div>
+
+      <div class="stats" data-rise="4">
+        <div class="stat"><div class="n">112</div><div class="l">changes shipped to production</div></div>
+        <div class="stat"><div class="n">92</div><div class="l">pull requests merged</div></div>
+      </div>
+      <p class="footnote" data-rise="3">Also in the voice stack: turn zero is now cacheable across calls, so the first reply lands sooner <b>(sc-92369 · bot #814)</b>, email addresses are spoken the way a human says them <b>(sc-92360 · bot #815 · sc-92144 · bot #802)</b>, and every turn owns its own speech queue so a retry cannot be starved <b>(sc-92734 · bot #852)</b>.</p>
+      <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-ali"></i>Ali T.</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span><span class="dev"><i class="av av-hadi"></i>Hadi A.</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span></div>
+    </section>
+
+    <!-- 2 · RELIABILITY -->
+    <section class="slide tone-ops" id="s-ops" aria-label="A deploy can no longer hang up on anyone">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 300 / 0.42);">02</div>
+      <span class="eyebrow" data-rise="1">Reliability &amp; measurement</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A deploy can no longer <em class="serif-i">hang up</em> on anyone.</h2>
+      <p class="lede" data-rise="1">We ship many times a day. This week, shipping stopped being something a live call could feel.</p>
+
+      <div class="wins" data-rise="2">
+        <div class="win">
+          <div class="area">Infrastructure · Deploys</div>
+          <h4>Rollouts wait for calls to finish</h4>
+          <p>Releasing new code no longer risks cutting off a conversation in progress.</p>
+          <p class="tech">Call-aware pod drain: a pod being replaced finishes its live calls first, then leaves.</p>
+          <div class="refs"><span class="ref story">sc-92123</span><span class="ref">bot #791</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Quality · Telemetry</div>
+          <h4>Every call files its own performance report</h4>
+          <p>A new Performance tab breaks a call down phase by phase, so a slow one shows where it was slow.</p>
+          <p class="tech">Per-call phase telemetry with Prometheus metrics, surfaced in Call Analysis. The effective score now weighs latency and low criterion scores.</p>
+          <div class="refs"><span class="ref story">sc-92471</span><span class="ref">bot #819</span><span class="ref">dash #2130</span><span class="ref story">sc-91642</span><span class="ref">dash #2089</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Calls · Endings</div>
+          <h4>Goodbyes actually end the call</h4>
+          <p>After a farewell, the call hangs up when the words finish — it no longer waits on audio that will never come.</p>
+          <p class="tech">The end-call grace period starts immediately when nothing is playing or queued, with a vocalization watchdog for speech that never arrives.</p>
+          <div class="refs"><span class="ref story">sc-92483</span><span class="ref">bot #821</span><span class="ref story">sc-92484</span><span class="ref">bot #822</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Video calls · Avatar</div>
+          <h4>The video-blur outage class is closed</h4>
+          <p>The bug behind our worst avatar incident is fixed at the root, and the avatar's stagehand stopped photobombing the call.</p>
+          <p class="tech">LiveKit stack retargeted to agents 1.7.0, closing the sc-92517 SEV-1. The avatar worker's room join is pinned and hidden from the call UI, and its latency tracker finally initialises.</p>
+          <div class="refs"><span class="ref story">sc-92517</span><span class="ref">bot #681</span><span class="ref story">sc-92724</span><span class="ref">bot #849</span><span class="ref">dash #2166</span><span class="ref">bot #843</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Under the hood: per-meeting caches are evicted and the logging queue is bounded <b>(sc-92647 · bot #838 · sc-92661 · bot #839)</b>, a ninety-thousand-a-day warning noise became one honest detector <b>(sc-92662 · bot #840)</b>, surprise disconnects are labeled INCOMPLETE instead of blamed on the caller <b>(sc-92168 · bot #806)</b>, two speech-pipeline races that clipped sentences are gone <b>(bot #842 · bot #851)</b>, and we left two decommissioned Groq models before they could fail a call <b>(sc-92350 · bot #810 · sc-92370 · bot #820)</b>.</p>
+      <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span></div>
+    </section>
+
+    <!-- 3 · DATA OUT -->
+    <section class="slide tone-data" id="s-data" aria-label="Your data leaves the building, on purpose">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">03</div>
+      <span class="eyebrow" data-rise="1">Exports, webhooks &amp; the data a client keeps</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Your data leaves the building — <em class="serif-i">on purpose.</em></h2>
+      <p class="lede" data-rise="1">Everything the agent learns on a call now flows out to wherever a client actually works.</p>
+
+      <div class="wins featured" data-rise="2">
+        <div class="win feature">
+          <div class="area">Exports · Lead attributes</div>
+          <h4>Exports finally speak each client's language</h4>
+          <p>The custom fields a client collects — budget, company size, anything — are now real columns in the leads export, the calls export and the campaign report, chosen in a new export modal with a preview.</p>
+          <p class="tech">A full epic: an attribute-key registry and catalog, per-client field pickers, resolution in the export backend, queued exports delivered by email with signed downloads, and CSV/XLSX formula-injection hardening so a hostile field name cannot become a spreadsheet exploit.</p>
+          <div class="refs"><span class="ref story">sc-92508</span><span class="ref">dash #2139</span><span class="ref">dash #2142</span><span class="ref">dash #2143</span><span class="ref">dash #2144</span><span class="ref story">sc-92487</span><span class="ref">dash #2133</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Campaigns · Webhooks</div>
+          <h4>Automations know when a campaign finishes</h4>
+          <p>A campaign.completed event now fires on native webhooks, Zapier and Appmixer the moment the last call wraps.</p>
+          <p class="tech">One event, three transports, so a client's follow-up automation starts itself.</p>
+          <div class="refs"><span class="ref story">sc-92624</span><span class="ref">dash #2145</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Integrations · Payloads</div>
+          <h4>The tools around us get richer payloads</h4>
+          <p>Zapier now receives the call recording and transcript, Appmixer calls carry metadata, and UTM parameters from the page a lead came from are stored on the lead.</p>
+          <p class="tech">DemoRecording joins parseZapier, metadata fields ride the Appmixer create-call, and the widget captures parent-page UTMs into lead metadata.</p>
+          <div class="refs"><span class="ref">dash #1509</span><span class="ref story">sc-65276</span><span class="ref">dash #1199</span><span class="ref story">sc-78797</span><span class="ref">dash #1694</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Platform · MCP</div>
+          <h4>The platform speaks MCP now</h4>
+          <p>An AI assistant can query our platform directly: a read-only landlord MCP server, plus a tool that fetches any call's bot logs.</p>
+          <p class="tech">Sanctum-token auth, read-only scope, and signed S3 links for the log bundles.</p>
+          <div class="refs"><span class="ref">dash #2127</span><span class="ref story">sc-92668</span><span class="ref">dash #2152</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Also: landlords and admins got their own call exports, async or sync <b>(sc-79825 · dash #1895)</b>, the client call export that returned a 500 is fixed <b>(dash #2171)</b>, and the outbound-call rate limit now only throttles what it was meant to throttle <b>(dash #2136)</b>.</p>
+      <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-junaid"></i>Junaid Masood</span></div>
+    </section>
+
+    <!-- 4 · PRODUCT POLISH -->
+    <section class="slide tone-product" id="s-product" aria-label="A thousand paper cuts, gone">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">04</div>
+      <span class="eyebrow" data-rise="1">Campaigns, calendars &amp; day-to-day use</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A thousand paper cuts, <em class="serif-i">gone.</em></h2>
+      <p class="lede" data-rise="1">The unglamorous week-in, week-out work that makes the dashboard feel finished.</p>
+
+      <div class="wins" data-rise="2">
+        <div class="win">
+          <div class="area">Campaigns · CSV upload</div>
+          <h4>Campaign CSVs explain themselves</h4>
+          <p>A rejected row now says why it was rejected, and valid timezones stopped being turned away.</p>
+          <p class="tech">Multi-word cities like America/Sao_Paulo pass validation, the wizard shows each agent's real timezone, and the Edit page finally matches the creation wizard, Add Leads included.</p>
+          <div class="refs"><span class="ref">dash #2148</span><span class="ref">dash #2147</span><span class="ref">dash #2172</span><span class="ref">dash #2162</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Dashboard · Usage</div>
+          <h4>The homepage tells the truth about usage</h4>
+          <p>Usage now reads in credits — the unit clients actually buy — and respects the date range you picked.</p>
+          <p class="tech">Credits instead of minutes, date-filter-aware stats, and a simplified Total Usage card.</p>
+          <div class="refs"><span class="ref">dash #2072</span><span class="ref">dash #2079</span><span class="ref">dash #2160</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Agents · One screen</div>
+          <h4>One agent screen, not three</h4>
+          <p>Tools and Automations merged into a single tab, and every old edit page now lands on the one true agent modal.</p>
+          <p class="tech">The legacy agent edit page redirects to the settings modal, credential modals got polish, and the modal stops offering to "Create" an agent that already exists.</p>
+          <div class="refs"><span class="ref">dash #2091</span><span class="ref story">sc-92368</span><span class="ref">dash #2150</span><span class="ref">dash #2161</span><span class="ref">dash #2164</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Calendars &amp; phone</div>
+          <h4>Embedded calendars dress to match</h4>
+          <p>A calendar embedded on a client's site can be styled to look like their site, and phone numbers from every country are accepted.</p>
+          <p class="tech">Embedded-calendar appearance settings, calendar-agent visibility and detachment controls, worldwide phone validation, and the country of purchased numbers is stored.</p>
+          <div class="refs"><span class="ref">dash #2063</span><span class="ref">dash #2080</span><span class="ref">dash #2086</span><span class="ref">dash #2118</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Also: one integration can hold multiple connected accounts via Composio <b>(dash #2073 · bot #766)</b>, a landlord can copy an agent into another client's account <b>(sc-79058 · dash #1720)</b>, the test widget previews over a screenshot of the client's site instead of a fragile iframe <b>(sc-76380 · dash #1616)</b>, test mode gained a More Settings panel and a refreshed bottom bar <b>(sc-74662 · dash #2035, sc-77319 · dash #2041)</b>, knowledgebase files render as view-only styled markdown <b>(dash #1933)</b>, each agent can carry its own call-summary prompt <b>(dash #1525 · bot #476)</b>, and an unpaid signup can register again without colliding with its own dead account <b>(sc-92346 · dash #2128)</b>.</p>
+      <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-david"></i>David Moradi</span></div>
+    </section>
+
+    <!-- 5 · THE CALL WINDOW -->
+    <section class="slide tone-call" id="s-call" aria-label="The call window grew up">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 190 / 0.42);">05</div>
+      <span class="eyebrow" data-rise="1">Web calls, waiting room &amp; the human handoff</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The call window <em class="serif-i">grew up.</em></h2>
+      <p class="lede" data-rise="1">Last week a human learned to step into the call. This week the room around that moment got better.</p>
+
+      <div class="wins" data-rise="2">
+        <div class="win">
+          <div class="area">Web calls · Joining</div>
+          <h4>Joining works where leads actually are</h4>
+          <p>Links opened inside Instagram, LinkedIn or TikTok's built-in browsers now join instead of being blocked, and the mic prompt appears when browsers trust it most.</p>
+          <p class="tech">In-app browsers unblocked, microphone requested inside the join tap itself, and the browser environment is recorded at call start so support can see what the lead saw.</p>
+          <div class="refs"><span class="ref story">sc-92479</span><span class="ref">dash #2131</span><span class="ref">dash #2158</span><span class="ref">dash #2167</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Video calls · Screen</div>
+          <h4>Video calls go full screen</h4>
+          <p>One click expands the call video to fill the screen — the demo finally gets the room it deserves.</p>
+          <p class="tech">Full-screen expand on the call video surface.</p>
+          <div class="refs"><span class="ref story">sc-90996</span><span class="ref">dash #2032</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Waiting room · Reporting</div>
+          <h4>The waiting room reports on itself</h4>
+          <p>AEs see a funnel of escalations and a per-person breakdown of who took what — and the arrival chime actually rings now.</p>
+          <p class="tech">Funnel and per-person reporting, plus fixes for silent audio cues, an ambiguous sound toggle, and arrivals that were invisible in the mini window.</p>
+          <div class="refs"><span class="ref">dash #2165</span><span class="ref story">sc-92653</span><span class="ref">dash #2151</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Calls · Handoff</div>
+          <h4>A handoff no longer ends the call by accident</h4>
+          <p>When the AI steps out after a human takes over, the humans keep talking — the room stays open.</p>
+          <p class="tech">The agent leaving no longer counts itself as the human keeping the call alive, and the avatar retires gracefully on takeover instead of being dropped by HeyGen.</p>
+          <div class="refs"><span class="ref story">sc-92171</span><span class="ref">dash #2112</span><span class="ref">bot #804</span></div>
+        </div>
+      </div>
+
+      <p class="footnote" data-rise="3">Also on calls: a bare "Hello?" after a phone transfer now counts as a human picking up <b>(sc-92357 · bot #827)</b>, sequence agents advance past a mid-script question and receive the prospect's reply <b>(sc-92459 · bot #837 · dash #2126)</b>, Cal.com invites carry the real attendee instead of a placeholder <b>(sc-91314 · dash #2069)</b>, lead fields the AI sends are normalized before saving <b>(sc-91613 · dash #2077)</b>, the public start-meeting page shows the agent's avatar and the client's name <b>(sc-92341 · dash #2117)</b>, and the Marketplace got live-install fixes with connect guides <b>(sc-91312 · dash #2124)</b>.</p>
+      <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-ali"></i>Ali T.</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span><span class="dev"><i class="av av-david"></i>David Moradi</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span></div>
+    </section>
+
+    <!-- 6 · IN REVIEW RIGHT NOW -->
+    <section class="slide" id="s-next" aria-label="Already in the review queue">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.16 330 / 0.42);">06</div>
+      <span class="eyebrow" data-rise="1">In review right now · not shipped yet</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Already in the <span class="grad">review queue.</span></h2>
+      <p class="lede" data-rise="1">Built, tested, and going through adversarial review. None of this is live yet; all of it is close.</p>
+
+      <div class="motion" data-rise="2">
+        <div class="mitem">
+          <h5>The human handoff gets a receptionist</h5>
+          <p>Warm transfer briefs the teammate and lets them accept before the lead is connected, the waiting room gets an AE take-over button, and inbound callers hear a ringback until the agent speaks.</p>
+          <p class="tech">Teammate briefing before connection, dashboard-driven take-over honored by the bot, and a ringback tone on inbound calls.</p>
+          <div class="refs"><span class="ref">bot #809</span><span class="ref story">sc-92708</span><span class="ref story">sc-92697</span></div>
+        </div>
+        <div class="mitem">
+          <h5>Interrupt the agent like a person</h5>
+          <p>Cutting the agent off mid-sentence gets a full redesign — the stop is instant and audible, and a sequence resumes from the exact point it was interrupted.</p>
+          <p class="tech">Generation-token cancellation, a two-stage barge-in, and sequence steps that resume from the barge-in point.</p>
+          <div class="refs"><span class="ref story">sc-92336</span><span class="ref">bot #817</span><span class="ref">bot #853</span></div>
+        </div>
+        <div class="mitem">
+          <h5>The call grades its own connection</h5>
+          <p>Real WebRTC telemetry from the lead's browser replaces a hardcoded "good", and the analysis can tell whether the agent actually heard the caller.</p>
+          <p class="tech">Client-side call telemetry, a heard-the-caller measure in call analysis, and echo cancellation asserted on every mic acquisition.</p>
+          <div class="refs"><span class="ref story">sc-92669</span><span class="ref story">sc-92677</span><span class="ref story">sc-92675</span></div>
+        </div>
+      </div>
+
+      <p class="pillbox" data-rise="3"><b>How to read this deck:</b> everything on slides 1 to 5 is on production today. Every card carries its Shortcut story and pull request, so anyone can go read the original.</p>
+      <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
+    </section>
+
+  </main>
+
+  <!-- chrome -->
+  <div class="hint" id="hint"><kbd>&larr;</kbd><kbd>&rarr;</kbd> or <kbd>Space</kbd> to navigate · <kbd>F</kbd> fullscreen</div>
+  <img class="logo" src="data:image/png;base64,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" alt="SalesCloser" width="33" height="30" />
+  <div class="counter"><b id="cur">01</b> / <span id="total">06</span></div>
+  <nav class="nav" aria-label="Slide navigation">
+    <button id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="dots" id="dots"></div>
+    <button id="next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </nav>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+
+  const progress = document.getElementById('progress');
+  const cur = document.getElementById('cur');
+  const dotsWrap = document.getElementById('dots');
+  const hint = document.getElementById('hint');
+  document.getElementById('total').textContent = String(total).padStart(2, '0');
+
+  slides.forEach((_, n) => {
+    const d = document.createElement('i');
+    d.addEventListener('click', () => go(n));
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    progress.style.width = ((i + 1) / total * 100) + '%';
+    cur.textContent = String(i + 1).padStart(2, '0');
+    if (hint) hint.style.opacity = i > 0 ? '0' : '';
+  }
+  const next = () => go(i + 1);
+  const prev = () => go(i - 1);
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(total - 1);
+    else if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
+    }
+  });
+
+  // touch swipe
+  let x0 = null;
+  addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive: true });
+  addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) (dx < 0 ? next() : prev());
+    x0 = null;
+  }, { passive: true });
+
+  go(0);
+</script>
+</body>
+</html>
