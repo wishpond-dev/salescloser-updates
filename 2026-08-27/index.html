@@ -461,13 +461,13 @@
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 240 / 0.42);">01</div>
       <span class="eyebrow" data-rise="1">Thu Aug 20 to Thu Aug 27 · what our clients get</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The agent found <em class="serif-i">its voice.</em></h2>
-      <p class="lede" data-rise="1">The week's flagship. We rebuilt the speech pipeline end to end, from the voices it speaks with to the ears it listens through.</p>
+      <p class="lede" data-rise="1">The week's flagship. We rebuilt how the agent speaks and how it listens, end to end.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Voice · Streaming</div>
           <h4>It starts speaking before the sentence is finished</h4>
-          <p>Audio now streams from the voice engine as it is generated instead of being downloaded whole. Phone, web, video and avatar calls all ride the new pipe, and replies land sooner.</p>
+          <p>Audio now streams from the voice engine as it is generated instead of being downloaded whole. Phone, web, video and avatar calls all use the new transport, and replies come back sooner.</p>
           <p class="tech">A new TTS websocket transport carries every mode, with TTS_TRANSPORT=http kept as a kill switch. Superseded turns drop their in-flight audio, and the pipe was proven with adversarial live-socket tests: reconnects, concurrency, and streaming that outruns the player's drain rate.</p>
           <div class="refs"><span class="ref story">sc-92515</span><span class="ref">bot #829</span><span class="ref">bot #831</span><span class="ref">bot master</span></div>
         </div>
@@ -480,7 +480,7 @@
         </div>
         <div class="win">
           <div class="area">Hearing · STT</div>
-          <h4>We benchmarked our ears, then picked the better ones</h4>
+          <h4>We put our own transcription to the test</h4>
           <p>A new accuracy benchmark settled the debate with data: English agents are back on the transcriber that heard them best.</p>
           <p class="tech">STT benchmark harness with S3-hosted audio. Verdict: Flux off by default, English returns to nova-3, and a fleet toggle keeps the door open.</p>
           <div class="refs"><span class="ref">bot #832</span><span class="ref">bot master</span></div>
@@ -507,7 +507,7 @@
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 300 / 0.42);">02</div>
       <span class="eyebrow" data-rise="1">Reliability &amp; measurement</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A deploy can no longer <em class="serif-i">hang up</em> on anyone.</h2>
-      <p class="lede" data-rise="1">We ship many times a day. This week, shipping stopped being something a live call could feel.</p>
+      <p class="lede" data-rise="1">We ship many times a day, and until this week a release could land in the middle of someone's call.</p>
 
       <div class="wins" data-rise="2">
         <div class="win">
@@ -533,8 +533,8 @@
         </div>
         <div class="win">
           <div class="area">Video calls · Avatar</div>
-          <h4>The video-blur outage class is closed</h4>
-          <p>The bug behind our worst avatar incident is fixed at the root, and the avatar's stagehand stopped photobombing the call.</p>
+          <h4>The video-blur crash is gone for good</h4>
+          <p>The bug behind our worst avatar incident is fixed at the root instead of patched around.</p>
           <p class="tech">LiveKit stack retargeted to agents 1.7.0, closing the sc-92517 SEV-1. The avatar worker's room join is pinned and hidden from the call UI, and its latency tracker now initialises.</p>
           <div class="refs"><span class="ref story">sc-92517</span><span class="ref">bot #681</span><span class="ref story">sc-92724</span><span class="ref">bot #849</span><span class="ref">dash #2166</span><span class="ref">bot #843</span></div>
         </div>
@@ -545,16 +545,16 @@
     </section>
 
     <!-- 3 · DATA OUT -->
-    <section class="slide tone-data" id="s-data" aria-label="Your data leaves the building, on purpose">
+    <section class="slide tone-data" id="s-data" aria-label="Everything exports now">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">03</div>
       <span class="eyebrow" data-rise="1">Exports, webhooks &amp; the data a client keeps</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Your data leaves the building, <em class="serif-i">on purpose.</em></h2>
-      <p class="lede" data-rise="1">Everything the agent learns on a call now flows out to the tools a client works in.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Everything <em class="serif-i">exports</em> now.</h2>
+      <p class="lede" data-rise="1">What the agent learns on a call now ends up in the tools a client already uses.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Exports · Lead attributes</div>
-          <h4>Exports finally speak each client's language</h4>
+          <h4>Custom fields show up in every export</h4>
           <p>The custom fields a client collects (budget, company size, whatever they track) are now real columns in the leads export, the calls export and the campaign report, chosen in a new export modal with a preview.</p>
           <p class="tech">A full epic: an attribute-key registry and catalog, per-client field pickers, resolution in the export backend, queued exports delivered by email with signed downloads, and CSV/XLSX formula-injection hardening so a hostile field name cannot become a spreadsheet exploit.</p>
           <div class="refs"><span class="ref story">sc-92508</span><span class="ref">dash #2139</span><span class="ref">dash #2142</span><span class="ref">dash #2143</span><span class="ref">dash #2144</span><span class="ref story">sc-92487</span><span class="ref">dash #2133</span></div>
@@ -568,7 +568,7 @@
         </div>
         <div class="win">
           <div class="area">Integrations · Payloads</div>
-          <h4>The tools around us get richer payloads</h4>
+          <h4>Zapier and Appmixer get the full picture</h4>
           <p>Zapier now receives the call recording and transcript, Appmixer calls carry metadata, and UTM parameters from the page a lead came from are stored on the lead.</p>
           <p class="tech">DemoRecording joins parseZapier, metadata fields ride the Appmixer create-call, and the widget captures parent-page UTMs into lead metadata.</p>
           <div class="refs"><span class="ref">dash #1509</span><span class="ref story">sc-65276</span><span class="ref">dash #1199</span><span class="ref story">sc-78797</span><span class="ref">dash #1694</span></div>
@@ -587,23 +587,23 @@
     </section>
 
     <!-- 4 · PRODUCT POLISH -->
-    <section class="slide tone-product" id="s-product" aria-label="A thousand paper cuts, gone">
+    <section class="slide tone-product" id="s-product" aria-label="A long list of small annoyances, fixed">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">04</div>
       <span class="eyebrow" data-rise="1">Campaigns, calendars &amp; day-to-day use</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A thousand paper cuts, <em class="serif-i">gone.</em></h2>
-      <p class="lede" data-rise="1">The unglamorous week-in, week-out work that makes the dashboard feel finished.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A long list of small annoyances, <em class="serif-i">fixed.</em></h2>
+      <p class="lede" data-rise="1">Cleanup across campaigns, calendars, usage and the agent screens.</p>
 
       <div class="wins" data-rise="2">
         <div class="win">
           <div class="area">Campaigns · CSV upload</div>
-          <h4>Campaign CSVs explain themselves</h4>
+          <h4>CSV uploads tell you what went wrong</h4>
           <p>A rejected row now says why it was rejected, and valid timezones stopped being turned away.</p>
           <p class="tech">Multi-word cities like America/Sao_Paulo pass validation, the wizard shows each agent's real timezone, and the Edit page now matches the creation wizard, Add Leads included.</p>
           <div class="refs"><span class="ref">dash #2148</span><span class="ref">dash #2147</span><span class="ref">dash #2172</span><span class="ref">dash #2162</span></div>
         </div>
         <div class="win">
           <div class="area">Dashboard · Usage</div>
-          <h4>The homepage tells the truth about usage</h4>
+          <h4>Usage now shows in credits</h4>
           <p>Usage now reads in credits, the unit clients buy, and it respects the date range you picked.</p>
           <p class="tech">Credits instead of minutes, date-filter-aware stats, and a simplified Total Usage card.</p>
           <div class="refs"><span class="ref">dash #2072</span><span class="ref">dash #2079</span><span class="ref">dash #2160</span></div>
@@ -617,7 +617,7 @@
         </div>
         <div class="win">
           <div class="area">Calendars &amp; phone</div>
-          <h4>Embedded calendars dress to match</h4>
+          <h4>Embedded calendars can match your site</h4>
           <p>A calendar embedded on a client's site can be styled to look like their site, and phone numbers from every country are accepted.</p>
           <p class="tech">Embedded-calendar appearance settings, calendar-agent visibility and detachment controls, worldwide phone validation, and the country of purchased numbers is stored.</p>
           <div class="refs"><span class="ref">dash #2063</span><span class="ref">dash #2080</span><span class="ref">dash #2086</span><span class="ref">dash #2118</span></div>
@@ -629,11 +629,11 @@
     </section>
 
     <!-- 5 · THE CALL WINDOW -->
-    <section class="slide tone-call" id="s-call" aria-label="The call window grew up">
+    <section class="slide tone-call" id="s-call" aria-label="Smoother from join to handoff">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 190 / 0.42);">05</div>
       <span class="eyebrow" data-rise="1">Web calls, waiting room &amp; the human handoff</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The call window <em class="serif-i">grew up.</em></h2>
-      <p class="lede" data-rise="1">Last week a human learned to step into the call. This week the room around that moment got better.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Smoother from join <em class="serif-i">to handoff.</em></h2>
+      <p class="lede" data-rise="1">Last week we shipped the human handoff. This week we fixed the things around it: how leads join, what the waiting room shows, and what happens after a takeover.</p>
 
       <div class="wins" data-rise="2">
         <div class="win">
@@ -646,13 +646,13 @@
         <div class="win">
           <div class="area">Video calls · Screen</div>
           <h4>Video calls go full screen</h4>
-          <p>One click expands the call video to fill the screen. The demo finally gets the room it deserves.</p>
+          <p>One click expands the call video to fill the screen. No more squinting at a small tile.</p>
           <p class="tech">Full-screen expand on the call video surface.</p>
           <div class="refs"><span class="ref story">sc-90996</span><span class="ref">dash #2032</span></div>
         </div>
         <div class="win">
           <div class="area">Waiting room · Reporting</div>
-          <h4>The waiting room reports on itself</h4>
+          <h4>The waiting room shows its numbers</h4>
           <p>Account executives see a funnel of escalations and a per-person breakdown of who took what. And the arrival chime rings now.</p>
           <p class="tech">Funnel and per-person reporting, plus fixes for silent audio cues, an ambiguous sound toggle, and arrivals that were invisible in the mini window.</p>
           <div class="refs"><span class="ref">dash #2165</span><span class="ref story">sc-92653</span><span class="ref">dash #2151</span></div>
@@ -679,7 +679,7 @@
 
       <div class="motion" data-rise="2">
         <div class="mitem">
-          <h5>The human handoff gets a receptionist</h5>
+          <h5>Warm transfers brief the teammate first</h5>
           <p>Warm transfer briefs the teammate and lets them accept before the lead is connected, the waiting room gets an AE take-over button, and inbound callers hear a ringback until the agent speaks.</p>
           <p class="tech">Teammate briefing before connection, dashboard-driven take-over honored by the bot, and a ringback tone on inbound calls.</p>
           <div class="refs"><span class="ref">bot #809</span><span class="ref story">sc-92708</span><span class="ref story">sc-92697</span></div>
@@ -691,7 +691,7 @@
           <div class="refs"><span class="ref story">sc-92336</span><span class="ref">bot #817</span><span class="ref">bot #853</span></div>
         </div>
         <div class="mitem">
-          <h5>The call grades its own connection</h5>
+          <h5>Connection quality gets measured for real</h5>
           <p>Real WebRTC telemetry from the lead's browser replaces a hardcoded "good", and the analysis can tell whether the agent actually heard the caller.</p>
           <p class="tech">Client-side call telemetry, a heard-the-caller measure in call analysis, and echo cancellation asserted on every mic acquisition.</p>
           <div class="refs"><span class="ref story">sc-92669</span><span class="ref story">sc-92677</span><span class="ref story">sc-92675</span></div>
