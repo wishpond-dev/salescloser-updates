@@ -4,7 +4,6 @@
       "n": 1,
       "slug": "2026-08-27-deck",
       "devices": [
-        "contrast-headline (One agent screen, not three)",
         "fragment-headline (A long list of small annoyances, fixed)",
         "short-beat-sentence (The room stays open)",
         "hero-personification (The agent found its voice)"
@@ -12,7 +11,6 @@
     }
   ],
   "cooldown": {
-    "contrast-headline": 3,
     "fragment-headline": 3,
     "short-beat-sentence": 2,
     "hero-personification": 3
