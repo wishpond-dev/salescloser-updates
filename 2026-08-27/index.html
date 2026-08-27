@@ -461,13 +461,13 @@
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 240 / 0.42);">01</div>
       <span class="eyebrow" data-rise="1">Thu Aug 20 to Thu Aug 27 · what our clients get</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The agent found <em class="serif-i">its voice.</em></h2>
-      <p class="lede" data-rise="1">The week's flagship. The whole speech pipeline was rebuilt: it streams instead of downloading, it speaks every language on the newest voices, and we benchmarked its ears.</p>
+      <p class="lede" data-rise="1">The week's flagship. We rebuilt the speech pipeline end to end, from the voices it speaks with to the ears it listens through.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Voice · Streaming</div>
           <h4>It starts speaking before the sentence is finished</h4>
-          <p>Audio now streams from the voice engine as it is generated instead of being downloaded whole. Every call type — phone, web, video, avatar — rides the new pipe, so replies land noticeably sooner.</p>
+          <p>Audio now streams from the voice engine as it is generated instead of being downloaded whole. Phone, web, video and avatar calls all ride the new pipe, and replies land sooner.</p>
           <p class="tech">A new TTS websocket transport carries every mode, with TTS_TRANSPORT=http kept as a kill switch. Superseded turns drop their in-flight audio, and the pipe was proven with adversarial live-socket tests: reconnects, concurrency, and streaming that outruns the player's drain rate.</p>
           <div class="refs"><span class="ref story">sc-92515</span><span class="ref">bot #829</span><span class="ref">bot #831</span><span class="ref">bot master</span></div>
         </div>
@@ -475,7 +475,7 @@
           <div class="area">Voice · Languages</div>
           <h4>Every language, one modern voice</h4>
           <p>All languages moved to ElevenLabs v3 Conversational, and follow-up messages now arrive localized in 44 languages.</p>
-          <p class="tech">Expanded STT/TTS coverage, fixed the v3 400s, and stability values snap to the presets v3 actually accepts.</p>
+          <p class="tech">Expanded STT/TTS coverage, fixed the v3 400s, and stability values snap to the presets v3 accepts.</p>
           <div class="refs"><span class="ref story">sc-92366</span><span class="ref">bot #811</span><span class="ref">bot #828</span></div>
         </div>
         <div class="win">
@@ -527,7 +527,7 @@
         <div class="win">
           <div class="area">Calls · Endings</div>
           <h4>Goodbyes actually end the call</h4>
-          <p>After a farewell, the call hangs up when the words finish — it no longer waits on audio that will never come.</p>
+          <p>After a farewell, the call hangs up when the words finish instead of waiting on audio that will never come.</p>
           <p class="tech">The end-call grace period starts immediately when nothing is playing or queued, with a vocalization watchdog for speech that never arrives.</p>
           <div class="refs"><span class="ref story">sc-92483</span><span class="ref">bot #821</span><span class="ref story">sc-92484</span><span class="ref">bot #822</span></div>
         </div>
@@ -535,7 +535,7 @@
           <div class="area">Video calls · Avatar</div>
           <h4>The video-blur outage class is closed</h4>
           <p>The bug behind our worst avatar incident is fixed at the root, and the avatar's stagehand stopped photobombing the call.</p>
-          <p class="tech">LiveKit stack retargeted to agents 1.7.0, closing the sc-92517 SEV-1. The avatar worker's room join is pinned and hidden from the call UI, and its latency tracker finally initialises.</p>
+          <p class="tech">LiveKit stack retargeted to agents 1.7.0, closing the sc-92517 SEV-1. The avatar worker's room join is pinned and hidden from the call UI, and its latency tracker now initialises.</p>
           <div class="refs"><span class="ref story">sc-92517</span><span class="ref">bot #681</span><span class="ref story">sc-92724</span><span class="ref">bot #849</span><span class="ref">dash #2166</span><span class="ref">bot #843</span></div>
         </div>
       </div>
@@ -548,14 +548,14 @@
     <section class="slide tone-data" id="s-data" aria-label="Your data leaves the building, on purpose">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">03</div>
       <span class="eyebrow" data-rise="1">Exports, webhooks &amp; the data a client keeps</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Your data leaves the building — <em class="serif-i">on purpose.</em></h2>
-      <p class="lede" data-rise="1">Everything the agent learns on a call now flows out to wherever a client actually works.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Your data leaves the building, <em class="serif-i">on purpose.</em></h2>
+      <p class="lede" data-rise="1">Everything the agent learns on a call now flows out to the tools a client works in.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Exports · Lead attributes</div>
           <h4>Exports finally speak each client's language</h4>
-          <p>The custom fields a client collects — budget, company size, anything — are now real columns in the leads export, the calls export and the campaign report, chosen in a new export modal with a preview.</p>
+          <p>The custom fields a client collects (budget, company size, whatever they track) are now real columns in the leads export, the calls export and the campaign report, chosen in a new export modal with a preview.</p>
           <p class="tech">A full epic: an attribute-key registry and catalog, per-client field pickers, resolution in the export backend, queued exports delivered by email with signed downloads, and CSV/XLSX formula-injection hardening so a hostile field name cannot become a spreadsheet exploit.</p>
           <div class="refs"><span class="ref story">sc-92508</span><span class="ref">dash #2139</span><span class="ref">dash #2142</span><span class="ref">dash #2143</span><span class="ref">dash #2144</span><span class="ref story">sc-92487</span><span class="ref">dash #2133</span></div>
         </div>
@@ -598,13 +598,13 @@
           <div class="area">Campaigns · CSV upload</div>
           <h4>Campaign CSVs explain themselves</h4>
           <p>A rejected row now says why it was rejected, and valid timezones stopped being turned away.</p>
-          <p class="tech">Multi-word cities like America/Sao_Paulo pass validation, the wizard shows each agent's real timezone, and the Edit page finally matches the creation wizard, Add Leads included.</p>
+          <p class="tech">Multi-word cities like America/Sao_Paulo pass validation, the wizard shows each agent's real timezone, and the Edit page now matches the creation wizard, Add Leads included.</p>
           <div class="refs"><span class="ref">dash #2148</span><span class="ref">dash #2147</span><span class="ref">dash #2172</span><span class="ref">dash #2162</span></div>
         </div>
         <div class="win">
           <div class="area">Dashboard · Usage</div>
           <h4>The homepage tells the truth about usage</h4>
-          <p>Usage now reads in credits — the unit clients actually buy — and respects the date range you picked.</p>
+          <p>Usage now reads in credits, the unit clients buy, and it respects the date range you picked.</p>
           <p class="tech">Credits instead of minutes, date-filter-aware stats, and a simplified Total Usage card.</p>
           <div class="refs"><span class="ref">dash #2072</span><span class="ref">dash #2079</span><span class="ref">dash #2160</span></div>
         </div>
@@ -638,7 +638,7 @@
       <div class="wins" data-rise="2">
         <div class="win">
           <div class="area">Web calls · Joining</div>
-          <h4>Joining works where leads actually are</h4>
+          <h4>Joining works where the leads are</h4>
           <p>Links opened inside Instagram, LinkedIn or TikTok's built-in browsers now join instead of being blocked, and the mic prompt appears when browsers trust it most.</p>
           <p class="tech">In-app browsers unblocked, microphone requested inside the join tap itself, and the browser environment is recorded at call start so support can see what the lead saw.</p>
           <div class="refs"><span class="ref story">sc-92479</span><span class="ref">dash #2131</span><span class="ref">dash #2158</span><span class="ref">dash #2167</span></div>
@@ -646,21 +646,21 @@
         <div class="win">
           <div class="area">Video calls · Screen</div>
           <h4>Video calls go full screen</h4>
-          <p>One click expands the call video to fill the screen — the demo finally gets the room it deserves.</p>
+          <p>One click expands the call video to fill the screen. The demo finally gets the room it deserves.</p>
           <p class="tech">Full-screen expand on the call video surface.</p>
           <div class="refs"><span class="ref story">sc-90996</span><span class="ref">dash #2032</span></div>
         </div>
         <div class="win">
           <div class="area">Waiting room · Reporting</div>
           <h4>The waiting room reports on itself</h4>
-          <p>AEs see a funnel of escalations and a per-person breakdown of who took what — and the arrival chime actually rings now.</p>
+          <p>Account executives see a funnel of escalations and a per-person breakdown of who took what. And the arrival chime rings now.</p>
           <p class="tech">Funnel and per-person reporting, plus fixes for silent audio cues, an ambiguous sound toggle, and arrivals that were invisible in the mini window.</p>
           <div class="refs"><span class="ref">dash #2165</span><span class="ref story">sc-92653</span><span class="ref">dash #2151</span></div>
         </div>
         <div class="win">
           <div class="area">Calls · Handoff</div>
           <h4>A handoff no longer ends the call by accident</h4>
-          <p>When the AI steps out after a human takes over, the humans keep talking — the room stays open.</p>
+          <p>When the AI steps out after a human takes over, the humans keep talking. The room stays open.</p>
           <p class="tech">The agent leaving no longer counts itself as the human keeping the call alive, and the avatar retires gracefully on takeover instead of being dropped by HeyGen.</p>
           <div class="refs"><span class="ref story">sc-92171</span><span class="ref">dash #2112</span><span class="ref">bot #804</span></div>
         </div>
@@ -675,7 +675,7 @@
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.16 330 / 0.42);">06</div>
       <span class="eyebrow" data-rise="1">In review right now · not shipped yet</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Already in the <span class="grad">review queue.</span></h2>
-      <p class="lede" data-rise="1">Built, tested, and going through adversarial review. None of this is live yet; all of it is close.</p>
+      <p class="lede" data-rise="1">Everything here is built and sitting in adversarial review. Not live yet, but close.</p>
 
       <div class="motion" data-rise="2">
         <div class="mitem">
@@ -686,7 +686,7 @@
         </div>
         <div class="mitem">
           <h5>Interrupt the agent like a person</h5>
-          <p>Cutting the agent off mid-sentence gets a full redesign — the stop is instant and audible, and a sequence resumes from the exact point it was interrupted.</p>
+          <p>Cutting the agent off mid-sentence gets a full redesign: the stop is instant and audible, and a sequence resumes from the exact point it was interrupted.</p>
           <p class="tech">Generation-token cancellation, a two-stage barge-in, and sequence steps that resume from the barge-in point.</p>
           <div class="refs"><span class="ref story">sc-92336</span><span class="ref">bot #817</span><span class="ref">bot #853</span></div>
         </div>

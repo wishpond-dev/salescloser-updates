@@ -1,0 +1,18 @@
+{
+  "pieces": [
+    {
+      "n": 1,
+      "slug": "2026-08-27-deck",
+      "devices": [
+        "contrast-headline (One agent screen, not three)",
+        "comma-pivot-headline (Your data leaves the building, on purpose)",
+        "short-beat-sentence (The room stays open)"
+      ]
+    }
+  ],
+  "cooldown": {
+    "contrast-headline": 3,
+    "comma-pivot-headline": 3,
+    "short-beat-sentence": 2
+  }
+}
