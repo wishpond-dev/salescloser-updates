@@ -6,13 +6,38 @@
       "devices": [
         "fragment-headline (A long list of small annoyances, fixed)",
         "short-beat-sentence (The room stays open)",
-        "hero-personification (The agent found its voice)"
+        "hero-personification (The agent found its voice)",
+        "closer-review-queue (Already in the review queue)"
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "2026-09-03-deck",
+      "devices": [
+        "plain-claim-headline (Calls now go to the AE who is actually there)",
+        "closer-by-the-numbers (The week in numbers)",
+        "hook-capability-statement (We can see which accounts are in trouble)"
+      ]
+    },
+    {
+      "n": 3,
+      "slug": "2026-09-10-deck",
+      "devices": [
+        "we-stopped-headline (We stopped saving invented email addresses)",
+        "closer-review-queue (Built, and sitting in review)",
+        "hook-cost-of-the-bug (A 42-second call was billed as 74 minutes)"
       ]
     }
   ],
   "cooldown": {
-    "fragment-headline": 3,
-    "short-beat-sentence": 2,
-    "hero-personification": 3
+    "fragment-headline": 1,
+    "short-beat-sentence": 0,
+    "hero-personification": 1,
+    "closer-review-queue": 3,
+    "closer-by-the-numbers": 2,
+    "plain-claim-headline": 2,
+    "we-stopped-headline": 3,
+    "hook-capability-statement": 2,
+    "hook-cost-of-the-bug": 3
   }
 }

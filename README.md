@@ -14,6 +14,8 @@ index.html            hub, lists every meeting by date
   index.html
 ```
 
+Decks so far: `2026-07-30`, `2026-08-06`, `2026-08-20`, `2026-08-27`, `2026-09-03`, `2026-09-10`.
+
 Self-contained HTML per deck. No build step, no dependencies, no external assets.
 
 ## Adding a meeting
@@ -31,3 +33,12 @@ Arrow keys / Space to navigate · `F` fullscreen · on-screen buttons · swipe o
 Each deck is built from what actually landed on `master` in the product repos for that
 period, then translated out of engineering language. Every item carries its Shortcut story
 and PR number so anyone can go read the original.
+
+Two rules hold for every deck:
+
+1. **Master only.** Each ref is checked against `git log --first-parent origin/master`
+   before it goes on a card. A merged pull request is not proof: `gh pr list` does not
+   filter by base branch, so work merged into a feature branch can look shipped.
+2. **No repeats.** Any pull request cited in an earlier deck is dropped from the next one.
+   Something the previous deck showed as "in review" can be reported as live, but only in
+   the closing slide, and never as a new win.
