@@ -453,6 +453,9 @@
     .counter { top: 1.05rem; right: 1.2rem; left: auto; bottom: auto; }
     .nav .dots { display: none; }
   }
+  .recap .mitem { padding: 1.4rem 1.5rem 1.5rem; border-left: 2px solid var(--accent-2); }
+  .recap .mitem h5 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.3rem, 1.8vw, 1.7rem); margin-bottom: 0.7rem; }
+  .recap .mitem p { font-size: clamp(0.98rem, 1.15vw, 1.15rem); line-height: 1.55; color: var(--text); }
 </style>
 </head>
 <body>
@@ -460,129 +463,129 @@
 
   <main class="deck" id="deck">
 
-    <!-- 1 · ONE CLIENT'S TEST CALL -->
-    <section class="slide tone-data" id="s-psi" aria-label="An Arizona lead got a sales call at 6:00 in the morning">
+    <!-- 1 · RIGHT TIME, RIGHT DETAILS -->
+    <section class="slide tone-data" id="s-details" aria-label="Leads get called at the right hour, and we save what they tell us">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">01</div>
       <span class="eyebrow" data-rise="1">Thu Sep 17 to Thu Sep 24 · 54 pull requests on master</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">An Arizona lead got a sales call <em class="serif-i">at 6:00 in the morning.</em></h2>
-      <p class="lede" data-rise="1">PSI Resources tested their agent on Sep 11 and sent us what went wrong. This week closed eight of those findings.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Leads get called at the right hour, <em class="serif-i">and we save what they tell us.</em></h2>
+      <p class="lede" data-rise="1">One client test found eight mistakes in times, numbers and emails. This week fixed all eight.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Campaigns · Calling hours</div>
-          <h4>Calling hours can follow the lead's clock, not the client's</h4>
-          <p>A campaign's calling window was read in the client's time zone. A lead two hours behind got a call at 06:00 local time. A new campaign setting reads the window in each lead's own time zone.</p>
-          <p class="tech">The setting is off by default, so existing campaigns keep today's behaviour until someone turns it on.</p>
+          <h4>Calling hours can follow the lead's time zone</h4>
+          <p>A campaign can now call each lead inside business hours where the lead lives. Before, a lead in Arizona got a call at 6:00 am.</p>
+          <p class="tech"><b>Clients:</b> no more early-morning complaints. The setting is off until someone turns it on.</p>
           <div class="refs"><span class="ref">dash #2408</span></div>
         </div>
         <div class="win">
           <div class="area">Calendars · Time zones</div>
-          <h4>"11:00 Central" is no longer read out as "11:00 Eastern"</h4>
-          <p>The agent quoted a slot with the wrong zone name. On another call, it told the lead a booking failed 31 seconds before any booking was attempted. Availability and booking now work from the real slot.</p>
-          <p class="tech">The confusing Local Business toggle is gone from the agent settings, because it caused the zone mix-up.</p>
+          <h4>The agent says the right time zone</h4>
+          <p>A Central slot was read out as Eastern. Now the time the lead hears is the time on the calendar.</p>
+          <p class="tech"><b>Clients:</b> fewer missed meetings.</p>
           <div class="refs"><span class="ref">bot #963</span><span class="ref">dash #2412</span></div>
         </div>
         <div class="win">
           <div class="area">Voice · Numbers</div>
-          <h4>Phone numbers are read one digit at a time</h4>
-          <p>"703" came out as "seven hundred and three", and "1-800" as "one eight hundred". The agent now reads every phone number digit by digit.</p>
-          <p class="tech">This was a PSI Resources finding from the same Sep 11 test.</p>
+          <h4>Phone numbers are read digit by digit</h4>
+          <p>"703" was read as "seven hundred and three". Now every phone number is read one digit at a time.</p>
+          <p class="tech"><b>Clients:</b> the agent sounds less like a machine.</p>
           <div class="refs"><span class="ref">bot #1020</span></div>
         </div>
         <div class="win">
-          <div class="area">Leads · Email capture</div>
-          <h4>The email we save is the email the caller confirmed</h4>
-          <p>The caller confirmed svargas@psiresources.com, and we stored vargas@. Now we save the confirmed address, and the agent reads back what we saved.</p>
-          <p class="tech">A spelled "tsabo1" was saved as "tsaboone". Spoken digits stay digits now.</p>
-          <div class="refs"><span class="ref">bot #1021</span><span class="ref story">sc-94134</span><span class="ref">bot #995</span><span class="ref story">sc-94308</span><span class="ref">bot #1001</span><span class="ref story">sc-93888</span><span class="ref">bot #960</span></div>
+          <div class="area">Leads · Email</div>
+          <h4>We save the email the lead confirmed</h4>
+          <p>The lead confirmed one address and we saved another. Now the saved address is the confirmed one.</p>
+          <p class="tech"><b>CS:</b> fewer tickets about wrong emails. <b>AEs:</b> follow-ups reach the lead.</p>
+          <div class="refs"><span class="ref">bot #1021</span><span class="ref">bot #995</span><span class="ref">bot #1001</span><span class="ref">bot #960</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: a voicemail that starts "Telephone number…" no longer blacklists a live lead <b>(bot #971 · dash #2416)</b>.</p>
+      <p class="footnote" data-rise="3">Also: a voicemail greeting no longer blacklists a live lead <b>(bot #971 · dash #2416)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
     </section>
 
     <!-- 2 · HOW THE AGENT TALKS -->
-    <section class="slide tone-voice" id="s-voice" aria-label="Agent answers are 39 percent shorter">
+    <section class="slide tone-voice" id="s-voice" aria-label="The agent answers, then stops">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 240 / 0.42);">02</div>
       <span class="eyebrow" data-rise="1">How the agent talks</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The agent answers, <em class="serif-i">then stops.</em></h2>
-      <p class="lede" data-rise="1">Agents talked in paragraphs. Every agent now follows a brevity rule, and in the test set the average answer fell from 42 words to 26. Three more fixes target the first seconds of a call.</p>
+      <p class="lede" data-rise="1">Answers are 39% shorter, and the first seconds of a call sound better.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Voice · Brevity</div>
-          <h4>Shorter answers, and a one-sentence greeting</h4>
-          <p>Each agent answers the question and stops, and the phone greeting is one sentence. Replies of three sentences or more fell from 19 of 28 to 5 of 28 in the test set.</p>
-          <p class="tech">Words per turn: 41.9 to 25.6 on the main model. New self-serve starter agents get the same rules. On the test set, "Is there any setup fee?" went from a 0.37 to a 0.93 score.</p>
+          <h4>Shorter answers on every agent</h4>
+          <p>The agent answers the question and stops. The phone greeting is one sentence.</p>
+          <p class="tech"><b>Clients:</b> leads stay in the conversation. <b>AEs:</b> demos feel less scripted.</p>
           <div class="refs"><span class="ref story">sc-93135</span><span class="ref">bot #898</span><span class="ref">dash #2307</span></div>
         </div>
         <div class="win">
           <div class="area">Calls · Pickup</div>
-          <h4>"Good afternoon, Sue speaking" counts as a pickup</h4>
-          <p>The agent did not recognise a receptionist's greeting, so it stayed silent. At Mondial Lighting, callers waited 2.7 to 4.4 seconds, and several receptionists hung up. The agent now greets at once, and only once.</p>
-          <p class="tech">Eight calls on Sep 18. Every receptionist greeting failed to match.</p>
+          <h4>The agent greets a receptionist at once</h4>
+          <p>"Good afternoon, Sue speaking" was not heard as a pickup, and some receptionists hung up during the silence.</p>
+          <p class="tech"><b>Clients:</b> more outbound calls get past the front desk.</p>
           <div class="refs"><span class="ref">bot #1010</span></div>
         </div>
         <div class="win">
           <div class="area">Voice · Speakerphone</div>
-          <h4>The agent no longer interrupts itself on a speakerphone</h4>
-          <p>On a speakerphone, the agent heard its own voice come back and treated it as the lead talking. A PSI caller heard the agent stop mid-sentence three times.</p>
-          <p class="tech">On a replay of that call, all four echo transcripts were dropped.</p>
+          <h4>No more self-interruptions on a speakerphone</h4>
+          <p>The agent heard its own echo and stopped mid-sentence. It ignores the echo now.</p>
+          <p class="tech"><b>Clients:</b> fewer calls that sound broken.</p>
           <div class="refs"><span class="ref">bot #979</span></div>
         </div>
         <div class="win">
           <div class="area">Web calls · Audio</div>
-          <h4>The first words of a web call no longer break up</h4>
-          <p>The first one or two seconds of a web-call greeting could stutter. The cause was 30 audio frames sent at once. Now they go one at a time.</p>
-          <p class="tech">New loop monitoring found the cause: 600 to 900 ms of silence at the start of two calls.</p>
+          <h4>Web-call greetings play cleanly</h4>
+          <p>The first one or two seconds of a web call could stutter. They play cleanly now.</p>
+          <p class="tech"><b>AEs:</b> a better first impression on live demos.</p>
           <div class="refs"><span class="ref story">sc-94125</span><span class="ref">bot #1013</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: prompt-based agents no longer run an extra hidden model check on every turn, which cuts lag and cost <b>(sc-94309 · bot #1008)</b>.</p>
+      <p class="footnote" data-rise="3">Also: prompt-based agents skip a hidden extra check on every turn, so they answer faster <b>(sc-94309 · bot #1008)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span></div>
     </section>
 
     <!-- 3 · AVATARS AND WEB CALLS -->
-    <section class="slide tone-web" id="s-avatars" aria-label="Our own avatars are on master">
+    <section class="slide tone-web" id="s-avatars" aria-label="A client's own photo can be the avatar">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.12 35 / 0.42);">03</div>
       <span class="eyebrow" data-rise="1">Avatars &amp; web calls</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A client's own photo can <em class="serif-i">now be the avatar.</em></h2>
-      <p class="lede" data-rise="1">SalesCloser now has its own avatar engine next to Tavus and LiveAvatar. Around it, web calls start faster, and a visitor no longer opens two calls by accident.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A client's own photo can <em class="serif-i">be the avatar.</em></h2>
+      <p class="lede" data-rise="1">We now have our own avatars. Web calls also start faster and open only once.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
-          <div class="area">Avatars · First-party</div>
-          <h4>SalesCloser avatars from a photo or a short video</h4>
-          <p>A client uploads a photo, or a 10 to 60 second video, and gets a talking avatar with lip sync. This is our own avatar, not a third-party one.</p>
-          <p class="tech">No client has used it on production yet. Two launch fixes this week made the first builds and calls connect.</p>
+          <div class="area">Avatars · SalesCloser</div>
+          <h4>Avatars made from a photo or a short video</h4>
+          <p>A client uploads a photo or a 10 to 60 second video and gets a talking avatar. It is our own, so we do not depend on a third party.</p>
+          <p class="tech"><b>AEs:</b> a new point for demos. No client uses it on production yet.</p>
           <div class="refs"><span class="ref story">sc-95061</span><span class="ref">dash #2487</span><span class="ref">bot #1014</span><span class="ref">dash #2536</span><span class="ref">bot #1024</span></div>
         </div>
         <div class="win">
           <div class="area">Avatars · Tavus</div>
-          <h4>38 live Tavus avatars can be picked again</h4>
-          <p>Ready Tavus avatars showed "Preparing…" and could not be selected. When Tavus was out of capacity, we told the client their photo was the problem.</p>
-          <p class="tech">In a check of 20 good portraits, 13 were rejected for the wrong reason.</p>
+          <h4>38 Tavus avatars work again</h4>
+          <p>Ready avatars showed "Preparing…", and good photos were rejected. Both are fixed.</p>
+          <p class="tech"><b>CS:</b> fewer "my avatar is stuck" tickets.</p>
           <div class="refs"><span class="ref">dash #2542</span></div>
         </div>
         <div class="win">
           <div class="area">Web calls · Speed</div>
-          <h4>The knowledge base no longer holds up the call</h4>
-          <p>A web call with a cold knowledge base took about 20.5 seconds to start, against 14 when warm. The knowledge base alone took 6.5 seconds. It now loads beside the call.</p>
-          <p class="tech">Website pages that did not change are no longer processed again, so a refresh takes 0.15 s, not 10.6 s. About 13 to 14 seconds is the floor for now.</p>
+          <h4>Web calls start faster</h4>
+          <p>The knowledge base no longer holds up the start of a call. A slow start lost about 6 seconds to it.</p>
+          <p class="tech"><b>Clients:</b> fewer visitors leave before the agent speaks.</p>
           <div class="refs"><span class="ref story">sc-93806</span><span class="ref">bot #947</span><span class="ref">dash #2380</span></div>
         </div>
         <div class="win">
           <div class="area">Web calls · Duplicates</div>
           <h4>One visitor, one call</h4>
-          <p>A visitor who came back to the call page got a second live call with a second avatar. An AE joined the empty one and asked "Is anybody out there?"</p>
-          <p class="tech">On Android, Facebook and Instagram browsers made a duplicate on 12 of 13 calls on one day. Both paths now end the old call first.</p>
+          <p>A returning visitor, or a phone inside Facebook or Instagram, could open a second call. Now the old call ends first.</p>
+          <p class="tech"><b>AEs:</b> no more joining an empty call.</p>
           <div class="refs"><span class="ref story">sc-94224</span><span class="ref">dash #2447</span><span class="ref story">sc-93835</span><span class="ref">dash #2461</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the inline avatar keeps its framing when the call connects, where a 16:9 feed lost about 28% of its height <b>(sc-95358 · dash #2554)</b>. An AE cannot join a call on an agent with human handoff turned off <b>(dash #2519)</b>.</p>
+      <p class="footnote" data-rise="3">Also: the inline avatar keeps its framing when the call connects <b>(sc-95358 · dash #2554)</b>. AEs cannot join a call on an agent with human handoff off <b>(dash #2519)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-ali"></i>Ali T.</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span></div>
     </section>
 
@@ -590,156 +593,183 @@
     <section class="slide tone-product" id="s-sky" aria-label="Sky's first week in production">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">04</div>
       <span class="eyebrow" data-rise="1">Sky · the copilot</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Sky's first week in production, <em class="serif-i">and what it broke.</em></h2>
-      <p class="lede" data-rise="1">Sky merged on Sep 17. Real users found four ways it could fail, and all four are fixed.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Sky's first week in production: <em class="serif-i">four problems, four fixes.</em></h2>
+      <p class="lede" data-rise="1">Real users found where Sky failed. It is more reliable now.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Sky · Saving prompts</div>
-          <h4>Sky can save prompt changes again</h4>
-          <p>From the Sep 17 release, Sky could not save a prompt change on production, and agent test runs failed. Customer Success was blocked. The fix went out the next day.</p>
-          <p class="tech">17 errors for 7 users. A missing OpenAI organization header on production caused it.</p>
+          <h4>Sky saves prompt changes again</h4>
+          <p>After the Sep 17 release, Sky could not save prompt changes. The fix went out the next day.</p>
+          <p class="tech"><b>CS:</b> unblocked. CS uses Sky to edit client agents.</p>
           <div class="refs"><span class="ref story">sc-94396</span><span class="ref">dash #2472</span></div>
         </div>
         <div class="win">
           <div class="area">Agents · Settings</div>
-          <h4>Changing one setting no longer wipes three others</h4>
-          <p>Every agent update through Sky or API v2 cleared Creativity, the phone-menu step and custom actions when the update did not name them. Now only what is named changes.</p>
+          <h4>One change no longer resets other settings</h4>
+          <p>An update through Sky or the API cleared settings it did not name. Now only the named setting changes.</p>
+          <p class="tech"><b>Clients:</b> agents keep their setup.</p>
           <div class="refs"><span class="ref story">sc-95337</span><span class="ref">dash #2546</span></div>
         </div>
         <div class="win">
           <div class="area">Sky · Onboarding</div>
-          <h4>"I'm building her now" means an agent gets built</h4>
-          <p>On an onboarding call, Sky said it was building the agent, and no agent was created. Sky had lost its build tool. It keeps the tool now, and a build that does not start gives Sky a clear message.</p>
-          <p class="tech">A stale browser tab also took Sky's editing tools away.</p>
-          <div class="refs"><span class="ref story">sc-95344</span><span class="ref">bot #1026</span><span class="ref story">sc-95345</span><span class="ref">dash #2550</span><span class="ref story">sc-95105</span><span class="ref">bot #1019</span></div>
+          <h4>When Sky says it builds an agent, it does</h4>
+          <p>Sky lost its build tool during onboarding calls. It keeps its tools now.</p>
+          <p class="tech"><b>Clients:</b> new signups leave onboarding with a working agent.</p>
+          <div class="refs"><span class="ref story">sc-95344</span><span class="ref">bot #1026</span><span class="ref">dash #2550</span><span class="ref">bot #1019</span></div>
         </div>
         <div class="win">
           <div class="area">Sky · Conditional prompts</div>
-          <h4>Sky manages conditional prompts from the agent page</h4>
-          <p>An owner can ask Sky to list, add, rename, delete or reorder the conditional prompts of an agent, and see the change on the page.</p>
+          <h4>Sky manages conditional prompts</h4>
+          <p>An owner can ask Sky to add, rename, delete or reorder the conditional prompts of an agent.</p>
+          <p class="tech"><b>CS:</b> less manual setup for clients.</p>
           <div class="refs"><span class="ref story">sc-94301</span><span class="ref">dash #2489</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: white-label tenants have the AI Assistant back <b>(sc-94387 · dash #2505)</b>, and the bot can build an agent from a website through the API <b>(sc-94400 · dash #2469)</b>.</p>
+      <p class="footnote" data-rise="3">Also: white-label tenants have the AI Assistant back <b>(sc-94387 · dash #2505)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span></div>
     </section>
 
     <!-- 5 · SMS, TWILIO, CALENDLY -->
-    <section class="slide tone-call" id="s-sms" aria-label="A client pays for a text only when the carrier accepts it">
+    <section class="slide tone-call" id="s-sms" aria-label="Clients pay for a text only when it is delivered">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 190 / 0.42);">05</div>
       <span class="eyebrow" data-rise="1">SMS, Twilio &amp; Calendly</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A client pays for a text <em class="serif-i">only when the carrier takes it.</em></h2>
-      <p class="lede" data-rise="1">On a list of 1,000 leads with 30% bad numbers, the SMS channel charged about 300 credits for texts that never left. The pilot is tighter now, and US registration is visible per number.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Clients pay for a text <em class="serif-i">only when the carrier takes it.</em></h2>
+      <p class="lede" data-rise="1">SMS billing is fairer, and phone and calendar errors say what is really wrong.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
-          <div class="area">SMS · Pilot</div>
-          <h4>The SMS agent charges on delivery, respects consent, and shows rejects</h4>
-          <p>Credits are taken when the carrier accepts the text, not when we send it. Consent gaps are closed, and rejected sends are visible to our team.</p>
-          <p class="tech">A breaker stops a run of carrier error 30034 (unregistered US sender).</p>
+          <div class="area">SMS · Billing</div>
+          <h4>Credits are charged on delivery, not on send</h4>
+          <p>Texts to bad numbers used to cost credits. Now the charge happens only when the carrier accepts the text.</p>
+          <p class="tech"><b>Clients:</b> fairer bills. <b>CS:</b> fewer billing disputes.</p>
           <div class="refs"><span class="ref story">sc-93322</span><span class="ref">dash #2292</span></div>
         </div>
         <div class="win">
-          <div class="area">SMS · Carrier registration</div>
-          <h4>US registration status for each number on the client's own Twilio</h4>
-          <p>US carriers block texts from unregistered numbers, and those texts arrive nowhere. The client sees each number's status and a warning before texts are held. Canadian leads can be texted now.</p>
+          <div class="area">SMS · Registration</div>
+          <h4>US registration status for each number</h4>
+          <p>US carriers block texts from numbers that are not registered. Clients now see each number's status and get a warning first.</p>
+          <p class="tech"><b>CS:</b> answers "why are my texts not arriving?" at a glance.</p>
           <div class="refs"><span class="ref story">sc-93453</span><span class="ref">dash #2366</span></div>
         </div>
         <div class="win">
           <div class="area">Twilio · Errors</div>
-          <h4>Valid Twilio credentials are no longer called invalid</h4>
-          <p>anna.money tried many times to fix credentials that were correct. Twilio had turned off voice calling on the account. The message now says that.</p>
-          <p class="tech">This was a SEV-1. The real cause was Twilio error 10005.</p>
+          <h4>The Twilio error names the real cause</h4>
+          <p>Clients with valid credentials were told they were invalid. The message now says what Twilio blocked.</p>
+          <p class="tech"><b>CS:</b> this was a SEV-1.</p>
           <div class="refs"><span class="ref story">bug-4603</span><span class="ref">dash #2506</span></div>
         </div>
         <div class="win">
           <div class="area">Calendars · Calendly</div>
-          <h4>A removed Calendly location no longer costs the booking</h4>
-          <p>If the meeting location saved on the agent was deleted in Calendly, the booking failed. It now retries with the current locations, and the lead keeps the slot.</p>
+          <h4>Calendly bookings survive a deleted location</h4>
+          <p>If the meeting location changed in Calendly, the booking failed. Now it retries and keeps the slot.</p>
+          <p class="tech"><b>Clients:</b> fewer lost bookings.</p>
           <div class="refs"><span class="ref story">sc-78808</span><span class="ref">dash #2402</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the "Inbound Call Received" trigger in integration flows fires only for the agent the client picked <b>(sc-77412 · dash #2401)</b>.</p>
+      <p class="footnote" data-rise="3">Also: the "Inbound Call Received" trigger fires only for the chosen agent <b>(sc-77412 · dash #2401)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-david"></i>David Moradi</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
     </section>
 
     <!-- 6 · GROWTH AND CS -->
-    <section class="slide tone-ops" id="s-growth" aria-label="Meta learns from calls where a person joined">
+    <section class="slide tone-ops" id="s-growth" aria-label="Ads, partners and CS tools">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 300 / 0.42);">06</div>
       <span class="eyebrow" data-rise="1">Ads, partners &amp; Customer Success</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Meta now learns from the calls <em class="serif-i">where a person joined.</em></h2>
-      <p class="lede" data-rise="1">An ad campaign improves toward whatever event we send it. We now send one for the moment a human AE joins a call, which is the conversation we want more of.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Meta learns from calls <em class="serif-i">where a person joined.</em></h2>
+      <p class="lede" data-rise="1">Better signals for ads and partners, and less manual work for CS.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
           <div class="area">Ads · Meta</div>
-          <h4>An "AE joined" event goes to Meta from our server</h4>
-          <p>The event fires only when a real AE joins. Meta campaigns can optimise for real conversations, not for page visits.</p>
-          <p class="tech">One client uses it so far. The follow-up fixed an acceptance event that had no listener and limits Meta retries.</p>
+          <h4>Meta gets an event when an AE joins a call</h4>
+          <p>Ad campaigns can now aim for leads who reach a real conversation, not only page visits.</p>
+          <p class="tech"><b>Clients:</b> ad spend goes toward better leads. One client uses it so far.</p>
           <div class="refs"><span class="ref story">sc-94327</span><span class="ref">dash #2466</span><span class="ref">dash #2486</span></div>
         </div>
         <div class="win">
           <div class="area">Partners · SDRCenter</div>
-          <h4>SDRCenter gets call conversions and the AI summary</h4>
-          <p>Conversions now reach SDRCenter. The AI summary arrived empty, because it is written about 2.5 minutes after the call. It is sent again once it exists.</p>
+          <h4>SDRCenter gets conversions and call summaries</h4>
+          <p>The AI summary arrived empty. It now arrives once it is written.</p>
+          <p class="tech"><b>Clients:</b> the partner sees every call.</p>
           <div class="refs"><span class="ref">dash #2529</span><span class="ref">dash #2535</span></div>
         </div>
         <div class="win">
           <div class="area">CS · Reviews</div>
-          <h4>CS can ask a happy client for a Trustpilot review</h4>
-          <p>A one-time Trustpilot banner can be turned on for a single client account.</p>
+          <h4>CS can ask a client for a Trustpilot review</h4>
+          <p>A one-time review banner can be turned on for one client account.</p>
+          <p class="tech"><b>CS:</b> more reviews from happy clients.</p>
           <div class="refs"><span class="ref story">sc-77857</span><span class="ref">dash #1675</span></div>
         </div>
         <div class="win">
           <div class="area">CS · Vitally</div>
-          <h4>Payment status reaches Vitally on its own</h4>
-          <p>Each client's Stripe payment status syncs to Vitally. CS no longer sets it by hand.</p>
+          <h4>Payment status syncs to Vitally</h4>
+          <p>Each client's payment status now reaches Vitally without manual work.</p>
+          <p class="tech"><b>CS:</b> one manual task less.</p>
           <div class="refs"><span class="ref story">sc-79173</span><span class="ref">dash #2011</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the staff client page loads its Pricing and Phone Numbers tabs again <b>(sc-95120 · dash #2510)</b>. The support assistant can read billing periods, skills, tool runs and Sky sessions without SQL <b>(sc-95173 · dash #2517 · sc-94267 · dash #2460 · sc-94399 · dash #2475)</b>, and its recording flag matches the call page <b>(sc-93330 · dash #2390)</b>.</p>
+      <p class="footnote" data-rise="3">Also: the staff client page loads its Pricing and Phone Numbers tabs again <b>(sc-95120 · dash #2510)</b>, and the support assistant reads billing, skills and Sky sessions <b>(dash #2517 · dash #2460 · dash #2475 · dash #2390)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-david"></i>David Moradi</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span></div>
     </section>
 
-    <!-- 7 · IN REVIEW RIGHT NOW -->
+    <!-- 7 · WHAT THIS MEANS FOR YOU -->
+    <section class="slide" id="s-recap" aria-label="What this week means for you">
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">07</div>
+      <span class="eyebrow" data-rise="1">This week in one slide</span>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">What this week means <span class="grad">for you.</span></h2>
+
+      <div class="motion recap" data-rise="2">
+        <div class="mitem">
+          <h5>Clients</h5>
+          <p>Leads get called at the right hour, and the agent saves the right email. Answers are shorter. Web calls start faster, and texts cost credits only when delivered.</p>
+        </div>
+        <div class="mitem">
+          <h5>Customer Success</h5>
+          <p>Sky works again for agent edits. Expect fewer tickets about wrong emails, stuck avatars, SMS charges and Twilio errors. Vitally syncs payment status, and Trustpilot requests are one click.</p>
+        </div>
+        <div class="mitem">
+          <h5>Account Executives</h5>
+          <p>Demos sound tighter, and a client's photo can be the avatar. No more joining an empty duplicate call. Meta can now aim ads at leads who talk to an AE.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · IN REVIEW RIGHT NOW -->
     <section class="slide" id="s-next" aria-label="In review: two agents on one call">
-      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.16 330 / 0.42);">07</div>
+      <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.16 330 / 0.42);">08</div>
       <span class="eyebrow" data-rise="1">In review right now · not shipped yet</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Approved and waiting: <span class="grad">two agents on one call.</span></h2>
-      <p class="lede" data-rise="1">These four are written and under review today. None of them is on production. Two already have their approval.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Coming next: <span class="grad">two agents on one call.</span></h2>
+      <p class="lede" data-rise="1">These four are in review. None is on production yet.</p>
 
       <div class="motion four" data-rise="2">
         <div class="mitem">
           <h5>An agent invites a colleague onto the call</h5>
-          <p>On a web call, an agent can bring in a second agent. One decision per turn picks who answers, so the two do not talk over each other.</p>
-          <p class="tech">Approved. Off unless the client setting is on. The dashboard half is a separate PR.</p>
+          <p>A second agent can join a web call. Only one agent answers each turn.</p>
+          <p class="tech">Approved.</p>
           <div class="refs"><span class="ref story">sc-93134</span><span class="ref">bot #1015</span></div>
         </div>
         <div class="mitem">
           <h5>The avatar speaks as soon as it appears</h5>
-          <p>On hybrid avatar calls, the first line starts after the avatar is ready, which adds 2.2 seconds of silence. The fix prepares it while the avatar joins.</p>
-          <p class="tech">Approved. Measured on one Tavus and one LiveAvatar call.</p>
+          <p>This removes about 2 seconds of silence at the start of avatar calls.</p>
+          <p class="tech">Approved.</p>
           <div class="refs"><span class="ref story">sc-95089</span><span class="ref">bot #1022</span></div>
         </div>
         <div class="mitem">
-          <h5>A transferred call shows the lead's number</h5>
-          <p>When the agent hands a call to the client's team, the rep's phone shows the bot's number. The fix shows the lead's own number, on Twilio and Telnyx.</p>
-          <p class="tech">If the lead's number cannot be formatted, the transfer uses today's caller ID.</p>
+          <h5>Transfers show the lead's number</h5>
+          <p>When the agent hands off a call, the rep sees who is calling.</p>
           <div class="refs"><span class="ref">dash #2559</span></div>
         </div>
         <div class="mitem">
-          <h5>Trial signups build their agent before the card</h5>
-          <p>A new signup on a plan with a free trial builds and tests the agent in the chat first, and adds a card after. Existing clients do not change.</p>
-          <p class="tech">White-label, self-serve and no-trial plans keep today's flow.</p>
+          <h5>Trial signups build an agent before the card</h5>
+          <p>New trial users build and test their agent first, and pay after.</p>
           <div class="refs"><span class="ref story">sc-95382</span><span class="ref">dash #2556</span></div>
         </div>
       </div>
 
-      <p class="pillbox" data-rise="3"><b>How to read this deck:</b> everything on slides 1 to 6 is on master and built for production, and every reference was checked against origin/master before it went on a card. Slide 7 is not live. None of the four items in last week's review queue has landed yet: live captions <b>(dash #2422)</b>, "booked" only after the calendar confirms <b>(bot #992)</b>, the Booking To Confirm outcome <b>(bot #958 · dash #2406)</b> and no charge for silent calls <b>(dash #2384)</b> are all still in review.</p>
+      <p class="pillbox" data-rise="3"><b>How to read this deck:</b> slides 1 to 6 are on master and built for production. Every ref was checked against origin/master. Slide 8 is not live. Last week's review items are still in review: live captions <b>(dash #2422)</b>, "booked" only after the calendar confirms <b>(bot #992)</b>, the Booking To Confirm outcome <b>(bot #958 · dash #2406)</b> and no charge for silent calls <b>(dash #2384)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span></div>
     </section>
 

@@ -43,11 +43,12 @@
       "n": 5,
       "slug": "2026-09-24-deck",
       "devices": [
-        "hook-one-client-test (An Arizona lead got a sales call at 6:00 in the morning)",
+        "plain-claim-headline (Leads get called at the right hour, and we save what they tell us)",
         "then-stops-headline (The agent answers, then stops)",
-        "plain-claim-headline (A client's own photo can now be the avatar)",
-        "what-it-broke-headline (Sky's first week in production, and what it broke)",
-        "closer-approved-and-waiting (Approved and waiting: two agents on one call)"
+        "plain-claim-headline (A client's own photo can be the avatar)",
+        "count-headline (Sky's first week in production: four problems, four fixes)",
+        "audience-recap (What this week means for you: Clients, CS, AEs)",
+        "closer-coming-next (Coming next: two agents on one call)"
       ]
     }
   ],
