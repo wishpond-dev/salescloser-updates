@@ -14,7 +14,7 @@ index.html            hub, lists every meeting by date
   index.html
 ```
 
-Decks so far: `2026-07-30`, `2026-08-06`, `2026-08-20`, `2026-08-27`, `2026-09-03`, `2026-09-10`.
+Decks so far: `2026-07-30`, `2026-08-06`, `2026-08-20`, `2026-08-27`, `2026-09-03`, `2026-09-10`, `2026-09-17`, `2026-09-24`.
 
 Self-contained HTML per deck. No build step, no dependencies, no external assets.
 

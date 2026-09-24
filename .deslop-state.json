@@ -27,17 +27,43 @@
         "closer-review-queue (Built, and sitting in review)",
         "hook-cost-of-the-bug (A 42-second call was billed as 74 minutes)"
       ]
+    },
+    {
+      "n": 4,
+      "slug": "2026-09-17-deck",
+      "devices": [
+        "hook-elapsed-time (Seven weeks after its pull request opened, Sky is in the product)",
+        "question-headline (What happens when a client's own Twilio stops working?)",
+        "finding-headline (On Sep 14, bots made nine of Morgan's ten failed web calls)",
+        "plain-claim-headline (Each sentence reaches the lead only once)",
+        "closer-named-next (Next: live captions for the manager who listens in)"
+      ]
+    },
+    {
+      "n": 5,
+      "slug": "2026-09-24-deck",
+      "devices": [
+        "hook-one-client-test (An Arizona lead got a sales call at 6:00 in the morning)",
+        "then-stops-headline (The agent answers, then stops)",
+        "plain-claim-headline (A client's own photo can now be the avatar)",
+        "what-it-broke-headline (Sky's first week in production, and what it broke)",
+        "closer-approved-and-waiting (Approved and waiting: two agents on one call)"
+      ]
     }
   ],
   "cooldown": {
-    "fragment-headline": 1,
+    "fragment-headline": 0,
     "short-beat-sentence": 0,
-    "hero-personification": 1,
-    "closer-review-queue": 3,
-    "closer-by-the-numbers": 2,
-    "plain-claim-headline": 2,
-    "we-stopped-headline": 3,
-    "hook-capability-statement": 2,
-    "hook-cost-of-the-bug": 3
+    "hero-personification": 0,
+    "closer-review-queue": 2,
+    "closer-by-the-numbers": 1,
+    "plain-claim-headline": 3,
+    "we-stopped-headline": 2,
+    "hook-capability-statement": 1,
+    "hook-cost-of-the-bug": 2,
+    "hook-elapsed-time": 3,
+    "question-headline": 3,
+    "finding-headline": 3,
+    "closer-named-next": 3
   }
 }
