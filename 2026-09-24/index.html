@@ -466,7 +466,7 @@
     <!-- 1 · RIGHT TIME, RIGHT DETAILS -->
     <section class="slide tone-data" id="s-details" aria-label="Leads get called at the right hour, and we save what they tell us">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">01</div>
-      <span class="eyebrow" data-rise="1">Thu Sep 17 to Thu Sep 24 · 54 pull requests on master</span>
+      <span class="eyebrow" data-rise="1">Thu Sep 17 to Thu Sep 24 · 64 pull requests on master</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Leads get called at the right hour, <em class="serif-i">and we save what they tell us.</em></h2>
       <p class="lede" data-rise="1">One client test found eight mistakes in times, numbers and emails. This week fixed all eight.</p>
 
@@ -585,7 +585,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the inline avatar keeps its framing when the call connects <b>(sc-95358 · dash #2554)</b>. AEs cannot join a call on an agent with human handoff off <b>(dash #2519)</b>.</p>
+      <p class="footnote" data-rise="3">Also: AEs can claim a live call from the Waiting Room mini window <b>(sc-94392 · dash #2474)</b>, and the chime stays quiet for Sky onboarding sessions <b>(sc-94391 · dash #2473)</b>. The test widget shows which website it loaded <b>(sc-94023 · dash #2514)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-ali"></i>Ali T.</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span></div>
     </section>
 
@@ -594,7 +594,7 @@
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">04</div>
       <span class="eyebrow" data-rise="1">Sky · the copilot</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Sky's first week in production: <em class="serif-i">four problems, four fixes.</em></h2>
-      <p class="lede" data-rise="1">Real users found where Sky failed. It is more reliable now.</p>
+      <p class="lede" data-rise="1">Real users found where Sky failed. It is more reliable now, and its automations send what the owner meant.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
@@ -619,15 +619,15 @@
           <div class="refs"><span class="ref story">sc-95344</span><span class="ref">bot #1026</span><span class="ref">dash #2550</span><span class="ref">bot #1019</span></div>
         </div>
         <div class="win">
-          <div class="area">Sky · Conditional prompts</div>
-          <h4>Sky manages conditional prompts</h4>
-          <p>An owner can ask Sky to add, rename, delete or reorder the conditional prompts of an agent.</p>
-          <p class="tech"><b>CS:</b> less manual setup for clients.</p>
-          <div class="refs"><span class="ref story">sc-94301</span><span class="ref">dash #2489</span></div>
+          <div class="area">Sky · Automations</div>
+          <h4>After-call emails carry the real call</h4>
+          <p>Emails sent the owner's instruction instead of the call details, and fired twice. Now they send the lead's details and a summary, once.</p>
+          <p class="tech"><b>Clients:</b> follow-ups they can trust. Sky also connects Twilio for SMS follow-ups.</p>
+          <div class="refs"><span class="ref story">sc-95190</span><span class="ref">dash #2541</span><span class="ref">bot #1025</span><span class="ref story">sc-94281</span><span class="ref">dash #2462</span><span class="ref">bot #1000</span></div>
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: white-label tenants have the AI Assistant back <b>(sc-94387 · dash #2505)</b>.</p>
+      <p class="footnote" data-rise="3">Also: Sky manages conditional prompts from the agent page <b>(sc-94301 · dash #2489)</b>, and white-label tenants have the AI Assistant back <b>(sc-94387 · dash #2505)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span></div>
     </section>
 
@@ -669,7 +669,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the "Inbound Call Received" trigger fires only for the chosen agent <b>(sc-77412 · dash #2401)</b>.</p>
+      <p class="footnote" data-rise="3">Also: Call Now says so when the call cannot be placed, where it used to report success <b>(sc-93817 · dash #2404)</b>. The "Inbound Call Received" trigger fires only for the chosen agent <b>(sc-77412 · dash #2401)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-david"></i>David Moradi</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
     </section>
 
@@ -711,7 +711,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the staff client page loads its Pricing and Phone Numbers tabs again <b>(sc-95120 · dash #2510)</b>, and the support assistant reads billing, skills and Sky sessions <b>(dash #2517 · dash #2460 · dash #2475 · dash #2390)</b>.</p>
+      <p class="footnote" data-rise="3">Also: the staff client page loads its Pricing and Phone Numbers tabs again <b>(sc-95120 · dash #2510)</b>, and the support assistant reads billing, skills, Sky sessions and agent prompts <b>(dash #2517 · dash #2460 · dash #2475 · dash #2390 · dash #2567)</b>. Staff can load training videos for a future client training center <b>(sc-95043 · dash #2527)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-david"></i>David Moradi</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span></div>
     </section>
 
@@ -728,11 +728,11 @@
         </div>
         <div class="mitem">
           <h5>Customer Success</h5>
-          <p>Sky works again for agent edits. Expect fewer tickets about wrong emails, stuck avatars, SMS charges and Twilio errors. Vitally syncs payment status, and Trustpilot requests are one click.</p>
+          <p>Sky works again for agent edits, and after-call emails carry the real call. Expect fewer tickets about wrong emails, stuck avatars, SMS charges and Twilio errors. Vitally syncs payment status, and Trustpilot requests are one click.</p>
         </div>
         <div class="mitem">
           <h5>Account Executives</h5>
-          <p>Demos sound tighter, and a client's photo can be the avatar. No more joining an empty duplicate call. Meta can now aim ads at leads who talk to an AE.</p>
+          <p>Demos sound tighter, and a client's photo can be the avatar. Claim a live call straight from the mini window, with no chime for onboarding sessions. Meta can now aim ads at leads who talk to an AE.</p>
         </div>
       </div>
     </section>
