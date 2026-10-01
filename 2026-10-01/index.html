@@ -503,7 +503,7 @@
     <!-- 1 · SKY TEST DRIVE -->
     <section class="slide tone-product" id="s-sky" aria-label="A new signup meets their agent on Sky's call">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">01</div>
-      <span class="eyebrow" data-rise="1">Thu Sep 24 to Thu Oct 1 · 62 pull requests on master</span>
+      <span class="eyebrow" data-rise="1">Thu Sep 24 to Thu Oct 1 · 65 pull requests on master</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A new signup meets their agent <em class="serif-i">on Sky's own call.</em></h2>
       <p class="lede" data-rise="1">Sky builds the first agent during onboarding, then brings it into the call so the person can talk to it right away.</p>
 
@@ -538,7 +538,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: Sky learns an integration from Swagger API docs or from a product's own website <b>(sc-95546 · dash #2598)</b>, and stops offering sign-ins that cannot connect <b>(sc-95552 · dash #2601)</b>. After an agent is created, the first-draft prompt wizard is back <b>(sc-95459 · dash #2578 · dash #2593)</b>.</p>
+      <p class="footnote" data-rise="3">Also: Sky learns an integration from Swagger API docs or from a product's own website <b>(sc-95546 · dash #2598)</b>, and stops offering sign-ins that cannot connect <b>(sc-95552 · dash #2601)</b>. Before Sky calls an app OAuth-only, it checks the vendor's help center for a token the owner can create <b>(sc-95557 · dash #2614)</b>, and it can trade a pasted token for a short-lived one <b>(sc-95556 · dash #2613)</b>. After an agent is created, the first-draft prompt wizard is back <b>(sc-95459 · dash #2578 · dash #2593)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-ali"></i>Ali T.</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
     </section>
 
@@ -622,7 +622,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: webhooks go out for leads with an unusual status <b>(sc-93944 · dash #2451)</b>. Free avatars say "Free", not "Paid $0.00" <b>(sc-95622 · dash #2631)</b>. The Hand Off to Expert example phrase is one the field accepts <b>(sc-95621 · dash #2630)</b>. Cal.com gets more time to answer <b>(dash #2571)</b>, and the widget's idle animation stops on hover <b>(sc-75890 · dash #2543)</b>.</p>
+      <p class="footnote" data-rise="3">Also: webhooks go out for leads with an unusual status <b>(sc-93944 · dash #2451)</b>. Free avatars say "Free", not "Paid $0.00" <b>(sc-95622 · dash #2631)</b>. The Hand Off to Expert example phrase is one the field accepts <b>(sc-95621 · dash #2630)</b>. Cal.com gets more time to answer <b>(dash #2571)</b>, a Calendly sign-in that expired no longer floods our error reports <b>(dash #2666)</b>, and the widget's idle animation stops on hover <b>(sc-75890 · dash #2543)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span></div>
     </section>
 
@@ -713,19 +713,19 @@
     <!-- 6 · THANK YOU -->
     <section class="slide" id="s-thanks" aria-label="Thank you to the developers who shipped this week">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">06</div>
-      <span class="eyebrow" data-rise="1">The people behind the 62 pull requests</span>
+      <span class="eyebrow" data-rise="1">The people behind the 65 pull requests</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Thank you, <span class="grad">team.</span></h2>
       <p class="lede" data-rise="1">Seven developers put work on master this week. This is what each of them changed, and who feels it.</p>
 
       <div class="thanks" data-rise="2">
         <article class="thank">
-          <header><i class="av av-alejandro"></i><div><h5>Alejandro Medina</h5><span class="count">26 pull requests</span></div></header>
+          <header><i class="av av-alejandro"></i><div><h5>Alejandro Medina</h5><span class="count">27 pull requests</span></div></header>
           <p>MCP actions, Zapier fields and clean-up, the Zapier security fix, "Cancel free trial", and Sky onboarding that reads more websites and stops repeating questions.</p>
           <p class="helps"><b>Helps:</b> clients plug in their own tools, and CS gets fewer Zapier and billing tickets.</p>
         </article>
         <article class="thank">
-          <header><i class="av av-gabriel"></i><div><h5>Gabriel Laporte</h5><span class="count">11 pull requests</span></div></header>
-          <p>Inbound calls in the caller's language, new leads that always join their campaign, after-call emails that arrive, and Google routines that reach the call.</p>
+          <header><i class="av av-gabriel"></i><div><h5>Gabriel Laporte</h5><span class="count">13 pull requests</span></div></header>
+          <p>Inbound calls in the caller's language, new leads that always join their campaign, after-call emails that arrive, Google routines that reach the call, and Sky connecting apps that looked OAuth-only.</p>
           <p class="helps"><b>Helps:</b> no lead or follow-up falls through, and CS can look up cancellations and emails without a developer.</p>
         </article>
         <article class="thank">
