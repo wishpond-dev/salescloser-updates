@@ -63,28 +63,47 @@
         "since-headline (Live since last Thursday: two agents on one call)",
         "closer-thank-you (Thank you, team: one card per developer)"
       ]
+    },
+    {
+      "n": 7,
+      "slug": "2026-10-08-deck",
+      "devices": [
+        "quoted-word-headline (The first \"Hello?\" gets an answer)",
+        "place-headline (On Telnyx lines, the agent hears Europe again)",
+        "place-list-headline (Sky works inside Instagram, Facebook and Google apps)",
+        "again-headline (Long calls get one complete recording again)",
+        "hook-capability-statement (Clients can connect Claude to their SalesCloser account)",
+        "without-headline (New clients can call without a Twilio account)",
+        "audience-recap (What this week means for you: Clients, CS, AEs)"
+      ]
     }
   ],
   "cooldown": {
     "fragment-headline": 0,
     "short-beat-sentence": 0,
     "hero-personification": 0,
-    "closer-review-queue": 1,
+    "closer-review-queue": 0,
     "closer-by-the-numbers": 0,
-    "plain-claim-headline": 2,
-    "we-stopped-headline": 1,
-    "hook-capability-statement": 0,
-    "hook-cost-of-the-bug": 1,
-    "hook-elapsed-time": 2,
-    "question-headline": 2,
-    "finding-headline": 2,
-    "closer-named-next": 2,
-    "person-subject-headline": 3,
-    "before-after-number-headline": 3,
-    "greeting-list-headline": 3,
-    "imperative-headline": 3,
-    "ui-label-headline": 3,
-    "since-headline": 3,
-    "closer-thank-you": 3
+    "plain-claim-headline": 1,
+    "we-stopped-headline": 0,
+    "hook-capability-statement": 3,
+    "hook-cost-of-the-bug": 0,
+    "hook-elapsed-time": 1,
+    "question-headline": 1,
+    "finding-headline": 1,
+    "closer-named-next": 1,
+    "person-subject-headline": 2,
+    "before-after-number-headline": 2,
+    "greeting-list-headline": 2,
+    "imperative-headline": 2,
+    "ui-label-headline": 2,
+    "since-headline": 2,
+    "closer-thank-you": 2,
+    "quoted-word-headline": 3,
+    "place-headline": 3,
+    "place-list-headline": 3,
+    "again-headline": 3,
+    "without-headline": 3,
+    "audience-recap": 3
   }
 }
