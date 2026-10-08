@@ -68,7 +68,7 @@
       "n": 7,
       "slug": "2026-10-08-deck",
       "devices": [
-        "quoted-word-headline (The first \"Hello?\" gets an answer)",
+        "no-longer-headline (A locked phone no longer ends the web call)",
         "place-headline (On Telnyx lines, the agent hears Europe again)",
         "place-list-headline (Sky works inside Instagram, Facebook and Google apps)",
         "again-headline (Long calls get one complete recording again)",
@@ -99,7 +99,7 @@
     "ui-label-headline": 2,
     "since-headline": 2,
     "closer-thank-you": 2,
-    "quoted-word-headline": 3,
+    "no-longer-headline": 3,
     "place-headline": 3,
     "place-list-headline": 3,
     "again-headline": 3,

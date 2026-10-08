@@ -501,26 +501,26 @@
   <main class="deck" id="deck">
 
     <!-- 1 · HOW CALLS SOUND -->
-    <section class="slide tone-voice" id="s-voice" aria-label="The first Hello gets an answer">
+    <section class="slide tone-voice" id="s-voice" aria-label="A locked phone no longer ends the web call">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 240 / 0.42);">01</div>
       <span class="eyebrow" data-rise="1">Thu Oct 1 to Thu Oct 8 · 109 pull requests on master</span>
-      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">The first "Hello?" <em class="serif-i">gets an answer.</em></h2>
-      <p class="lede" data-rise="1">Speech-to-speech calls lose their dead air, and web calls survive a locked phone.</p>
+      <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">A locked phone <em class="serif-i">no longer ends the web call.</em></h2>
+      <p class="lede" data-rise="1">Web calls survive mobile visitors, and a broken voice no longer means a silent call.</p>
 
       <div class="wins featured" data-rise="2">
         <div class="win feature">
-          <div class="area">Outbound · Pickup</div>
-          <h4>The agent replies to the first "Hello?"</h4>
-          <p>More than half of these outbound calls opened with about 10 seconds of dead air. The agent now replies right away.</p>
-          <p class="tech"><b>Clients:</b> fewer leads hang up before the pitch.</p>
-          <div class="refs"><span class="ref story">sc-95366</span><span class="ref">bot #1083</span></div>
-        </div>
-        <div class="win">
           <div class="area">Web calls · Mobile</div>
           <h4>A locked phone no longer ends the call</h4>
           <p>About one web call in five ended when the visitor's screen locked. Now the call waits and reconnects.</p>
           <p class="tech"><b>Clients:</b> mobile visitors finish the conversation.</p>
           <div class="refs"><span class="ref story">sc-96288</span><span class="ref">bot #1110</span><span class="ref story">sc-96358</span><span class="ref">dash #2790</span></div>
+        </div>
+        <div class="win">
+          <div class="area">Speech-to-speech · Pickup</div>
+          <h4>Speech-to-speech agents skip the dead air too</h4>
+          <p>Last week's faster pickup did not reach these agents. They had about 10 seconds of silence, and now reply right away.</p>
+          <p class="tech"><b>Clients:</b> fewer leads hang up before the pitch.</p>
+          <div class="refs"><span class="ref story">sc-95366</span><span class="ref">bot #1083</span></div>
         </div>
         <div class="win">
           <div class="area">Voices · Backup</div>
@@ -573,7 +573,7 @@
         </div>
         <div class="win">
           <div class="area">Outbound · Machines</div>
-          <h4>Voicemails, phone menus and screeners go smoother</h4>
+          <h4>Voicemail and phone-menu handling gets sharper</h4>
           <p>Messages finish cleanly, and phone menus are easier to get through. A screener is no longer greeted by the lead's name.</p>
           <p class="tech"><b>Clients:</b> more calls reach the right person.</p>
           <div class="refs"><span class="ref story">sc-90949</span><span class="ref">bot #1029</span><span class="ref story">sc-93637</span><span class="ref">bot #1061</span></div>
@@ -601,8 +601,8 @@
         </div>
         <div class="win">
           <div class="area">Sky · First screen</div>
-          <h4>A new first screen, and a test drive</h4>
-          <p>The signup chats with the agent Sky just built, then moves onto a call with it.</p>
+          <h4>Test-drive by chat first, then call</h4>
+          <p>Last week the new agent joined Sky's call. Now the signup can chat with it first, from a redesigned first screen.</p>
           <p class="tech"><b>AEs:</b> the prospect hears their own agent in minutes.</p>
           <div class="refs"><span class="ref story">sc-96138</span><span class="ref">dash #2731</span><span class="ref">bot #1097</span></div>
         </div>
@@ -622,7 +622,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: Sky's last button sends each signup to their real next step <b>(sc-96390 · dash #2796)</b>, and a returning trial user lands on the chat <b>(sc-95929 · dash #2682 · dash #2691)</b>. Every agent Sky builds wears the same avatar <b>(sc-96118 · dash #2724)</b>. Names with accents or apostrophes no longer block the wizard <b>(sc-96098 · dash #2721)</b>, and the account keeps its own name <b>(sc-96110 · dash #2730)</b>. More fixes from production QA <b>(sc-96143 · dash #2795)</b>.</p>
+      <p class="footnote" data-rise="3">Also: Sky's last button sends each signup to their real next step <b>(sc-96390 · dash #2796)</b>, and a returning trial user lands on the chat <b>(sc-95929 · dash #2682 · dash #2691)</b>. Names with accents or apostrophes no longer block the wizard <b>(sc-96098 · dash #2721)</b>, and the account keeps its own name <b>(sc-96110 · dash #2730)</b>. More fixes from production QA <b>(sc-96143 · dash #2795)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-ali"></i>Ali T.</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span></div>
     </section>
 
@@ -643,8 +643,8 @@
         </div>
         <div class="win">
           <div class="area">Follow-ups · Email</div>
-          <h4>After-call emails stop skipping real messages</h4>
-          <p>Some emails were skipped when the caller did not ask for a note. They go out now.</p>
+          <h4>A second gap in after-call emails, closed</h4>
+          <p>Emails were also skipped when the caller did not ask for a note. Those go out now.</p>
           <p class="tech"><b>Clients:</b> no caller message is lost.</p>
           <div class="refs"><span class="ref story">sc-95618</span><span class="ref">dash #2626</span><span class="ref story">sc-95619</span><span class="ref">dash #2625</span></div>
         </div>
@@ -699,7 +699,7 @@
         </div>
         <div class="win">
           <div class="area">MCP · Sign-in</div>
-          <h4>MCP servers connect with a sign-in button</h4>
+          <h4>MCP actions now sign in with a button</h4>
           <p>No more pasting keys. When the sign-in expires, the agent renews it and keeps going.</p>
           <p class="tech"><b>Clients:</b> tools keep working on live calls.</p>
           <div class="refs"><span class="ref story">sc-96217</span><span class="ref">dash #2748</span><span class="ref story">sc-96218</span><span class="ref">bot #1101</span></div>
@@ -727,8 +727,8 @@
         </div>
         <div class="win">
           <div class="area">Trials · Cancel</div>
-          <h4>A cancelled trial runs to its end date</h4>
-          <p>Access stays until the trial ends, and no charge fires. The form asks why they left.</p>
+          <h4>Cancelling a trial no longer cuts access</h4>
+          <p>Last week's cancel button ended access at once. Now it lasts until the trial end date, and the form asks why.</p>
           <p class="tech"><b>CS:</b> a reason for every cancel.</p>
           <div class="refs"><span class="ref story">sc-96391</span><span class="ref">dash #2798</span></div>
         </div>
@@ -748,7 +748,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: Meta and Google Ads count a trial when the card is added <b>(sc-95875)</b>. A Trustpilot prompt that CS triggers shows on the next page load <b>(sc-96291 · dash #2771)</b>, and Vitally shows when an account's agent goes live on its website <b>(sc-96347 · dash #2782)</b>. Chat widgets can collapse to a small pill with the agent's photo <b>(sc-95668 · dash #2642)</b>. ScaleWise customers can create agents again <b>(sc-95898 · dash #2681 · sc-96073 · dash #2718)</b>. Two security fixes, on the payment confirmation page and on table sorting <b>(sc-96094 · dash #2732 · sc-95899 · dash #2679)</b>.</p>
+      <p class="footnote" data-rise="3">Also: Meta and Google Ads now also count the moment a trial adds a card <b>(sc-95875)</b>. A Trustpilot prompt that CS triggers shows on the next page load <b>(sc-96291 · dash #2771)</b>, and Vitally shows when an account's agent goes live on its website <b>(sc-96347 · dash #2782)</b>. Chat widgets can collapse to a small pill with the agent's photo <b>(sc-95668 · dash #2642)</b>. ScaleWise customers can create agents again <b>(sc-95898 · dash #2681 · sc-96073 · dash #2718)</b>. Two security fixes, on the payment confirmation page and on table sorting <b>(sc-96094 · dash #2732 · sc-95899 · dash #2679)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-ali"></i>Ali T.</span></div>
     </section>
 
@@ -761,7 +761,7 @@
       <div class="motion recap" data-rise="2">
         <div class="mitem">
           <h5>Clients</h5>
-          <p>The agent answers the first "Hello?" and hears callers in Europe. Long calls keep their recording, and after-call emails go out. Web calls survive a locked phone.</p>
+          <p>Web calls survive a locked phone, and the agent hears callers in Europe. Long calls keep their recording, and more after-call emails go out. Speech-to-speech agents answer at once.</p>
         </div>
         <div class="mitem">
           <h5>Customer Success</h5>
