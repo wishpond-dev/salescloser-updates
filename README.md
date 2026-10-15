@@ -34,6 +34,11 @@ Each deck is built from what actually landed on `master` in the product repos fo
 period, then translated out of engineering language. Every item carries its Shortcut story
 and PR number so anyone can go read the original.
 
+The pull request count covers every `salescloser-*` repository in `wishpond-dev`, on its
+default branch: dashboard, bot, website (`salescloser-growthbook-edge`), avatars, staging
+(`salescloser-coltrane`), call proxy, Killer Calls, Zendesk app and the others. It does not
+count the automatic chart bumps in `salescloser-helm-charts` or this repository.
+
 Two rules hold for every deck:
 
 1. **Master only.** Each ref is checked against `git log --first-parent origin/master`

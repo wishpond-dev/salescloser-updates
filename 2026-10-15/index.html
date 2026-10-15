@@ -494,10 +494,10 @@
     .thank p { font-size: 0.8rem; }
   }
   /* the closing total, spans the empty cells after the six developer cards */
-  .thank.total { flex-direction: row; align-items: center; gap: 1.1rem; border-top-color: var(--good); background: linear-gradient(160deg, oklch(78% 0.15 155 / 0.10), var(--surface)); }
-  @media (min-width: 760px) { .thank.total { grid-column: span 2; } }
+  .thank.total { justify-content: center; gap: 0.35rem; border-top-color: var(--good); background: linear-gradient(160deg, oklch(78% 0.15 155 / 0.10), var(--surface)); }
   .thank.total .total-num { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 4.4vw, 3.8rem); line-height: 1; color: var(--good); }
   .thank.total p { margin-top: 0.25rem; }
+  .thank .av-initials { display: grid; place-items: center; font-style: normal; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: var(--bg); background: var(--accent-2); }
 </style>
 </head>
 <body>
@@ -508,7 +508,7 @@
     <!-- 1 · CALLS THAT START AND END RIGHT -->
     <section class="slide tone-call" id="s-calls" aria-label="One call stayed open four hours after the goodbye">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 190 / 0.42);">01</div>
-      <span class="eyebrow" data-rise="1">Thu Oct 8 to Thu Oct 15 · 80 pull requests on master</span>
+      <span class="eyebrow" data-rise="1">Thu Oct 8 to Thu Oct 15 · 101 pull requests on master</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">One call stayed open <em class="serif-i">four hours after the goodbye.</em></h2>
       <p class="lede" data-rise="1">Calls now hang up when the agent is done, and wait for a real person before the agent speaks.</p>
 
@@ -543,7 +543,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: an agent whose voice was deleted gets a working voice when it is saved, so it can call again <b>(sc-96643 · dash #2843)</b>. Test calls stay out of the Waiting Room, so they no longer chime or page an AE <b>(dash #2908)</b>. Speech-to-speech audio no longer freezes for up to two seconds when someone joins a group call <b>(sc-95904 · bot #1079)</b>. We can switch the agent's voice engine from App Settings, with no deploy <b>(sc-96303 · dash #2799 · bot #1119)</b>.</p>
+      <p class="footnote" data-rise="3">Also: an agent whose voice was deleted gets a working voice when it is saved, so it can call again <b>(sc-96643 · dash #2843)</b>. Test calls stay out of the Waiting Room, so they no longer chime or page an AE <b>(dash #2908)</b>. Speech-to-speech audio no longer freezes for up to two seconds when someone joins a group call <b>(sc-95904 · bot #1079)</b>. We can switch the agent's voice engine from App Settings, with no deploy <b>(sc-96303 · dash #2799 · bot #1119)</b>. The call proxy keeps client Telnyx keys out of its logs <b>(sc-96474 · proxy #17)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span><span class="dev"><i class="av av-paulo"></i>Paulo Gimenes</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
     </section>
 
@@ -585,7 +585,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: Ditto avatars move live in the website widget, not as a still photo <b>(sc-96813 · dash #2892)</b>. Photo avatars can now smile or look concerned, and the uploader gets a tip when a photo cannot <b>(sc-96819 · dash #2893 · dash #2894)</b>.</p>
+      <p class="footnote" data-rise="3">Also: Ditto avatars move live in the website widget, not as a still photo <b>(sc-96813 · dash #2892)</b>. Photo avatars can now smile or look concerned, and the uploader gets a tip when a photo cannot <b>(sc-96819 · dash #2893 · dash #2894)</b>. Avatars no longer freeze for a quarter second, and can match their expression to the tone of the call <b>(ditto #5 · ditto #6 · ditto #7)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-amir"></i>Amir PJ</span><span class="dev"><i class="av av-igor"></i>Igor Negrizoli</span><span class="dev"><i class="av av-ali"></i>Ali T.</span></div>
     </section>
 
@@ -627,7 +627,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the sign-up page is one column, with Google first <b>(sc-96828 · dash #2896)</b>. A test drive inside Sky now counts as "tested their agent" in our metrics <b>(sc-96881 · dash #2915)</b>. The onboarding chat has a logout <b>(sc-96789 · dash #2876 · sc-96794 · dash #2880)</b>. Private app pages are kept out of Google search <b>(sc-96871 · dash #2911)</b>.</p>
+      <p class="footnote" data-rise="3">Also: the new salescloser.ai is live, with 52 pages, a redesigned Integrations page and new Google Ads landing pages <b>(sc-96532 · 12 PRs · site #86 to site #99)</b>. The sign-up page is one column, with Google first <b>(sc-96828 · dash #2896)</b>. A test drive inside Sky now counts as "tested their agent" in our metrics <b>(sc-96881 · dash #2915)</b>. The onboarding chat has a logout <b>(sc-96789 · dash #2876 · sc-96794 · dash #2880)</b>. Private app pages are kept out of Google search <b>(sc-96871 · dash #2911)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-ali"></i>Ali T.</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span></div>
     </section>
 
@@ -711,7 +711,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: the Twilio usage sync stops at the first rejected key, which removes about 625 error reports per run <b>(sc-95949 · dash #2699)</b>. Our scheduled jobs no longer all start at the top of the hour <b>(sc-96922 · dash #2927)</b>.</p>
+      <p class="footnote" data-rise="3">Also: about 625 Twilio error reports per run are gone <b>(sc-95949 · dash #2699)</b>. Scheduled jobs no longer all start on the hour <b>(sc-96922 · dash #2927)</b>, and staging stays up <b>(coltrane #88 · coltrane #89 · coltrane #90)</b>. Killer Calls, our call-scoring tool, rewards one-call-close language and takes in cold calls <b>(kc #46 · kc #47)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
     </section>
 
@@ -760,7 +760,7 @@
     <!-- 7 · WHAT THIS MEANS FOR YOU -->
     <section class="slide" id="s-recap" aria-label="What this week means for you">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">07</div>
-      <span class="eyebrow" data-rise="1">Six developers · 80 pull requests</span>
+      <span class="eyebrow" data-rise="1">Seven people · 101 pull requests</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">What this week means <span class="grad">for you.</span></h2>
 
       <div class="motion recap" data-rise="2">
@@ -780,11 +780,11 @@
     </section>
 
     <!-- 8 · THANK YOU -->
-    <section class="slide" id="s-thanks" aria-label="Thank you to the developers who shipped this week">
+    <section class="slide" id="s-thanks" aria-label="Thank you to the people who shipped this week">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">08</div>
-      <span class="eyebrow" data-rise="1">The people behind the 80 pull requests</span>
+      <span class="eyebrow" data-rise="1">The people behind the 101 pull requests</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Thank you, <span class="grad">team.</span></h2>
-      <p class="lede" data-rise="1">Six developers put work on master this week. This is what each of them changed, and who feels it.</p>
+      <p class="lede" data-rise="1">Seven people merged work into SalesCloser this week. This is what each of them changed, and who feels it.</p>
 
       <div class="thanks" data-rise="2">
         <article class="thank">
@@ -793,14 +793,19 @@
           <p class="helps"><b>Helps:</b> clients get the full story of each call, and their data stays private.</p>
         </article>
         <article class="thank">
+          <header><i class="av av-ali"></i><div><h5>Ali T.</h5><span class="count">27 pull requests</span></div></header>
+          <p>The new salescloser.ai site, Sky's Activate step after the test drive, Sky on phones, a safer test drive, the one-column sign-up page, and smoother, live Ditto avatars.</p>
+          <p class="helps"><b>Helps:</b> more visitors become signups, and more signups reach the moment they decide to buy.</p>
+        </article>
+        <article class="thank">
           <header><i class="av av-alejandro"></i><div><h5>Alejandro Medina</h5><span class="count">15 pull requests</span></div></header>
-          <p>Self-serve cancel and pause, transfers on speech-to-speech agents, faster Spanish replies, the Zendesk and Intercom review fixes, and Twilio keys hidden from managed clients.</p>
+          <p>Self-serve cancel and pause, transfers on speech-to-speech agents, faster Spanish replies, the Zendesk app and the Intercom review fixes, and Twilio keys hidden from managed clients.</p>
           <p class="helps"><b>Helps:</b> CS stops processing cancels by hand, and hot leads reach a person.</p>
         </article>
         <article class="thank">
-          <header><i class="av av-ali"></i><div><h5>Ali T.</h5><span class="count">12 pull requests</span></div></header>
-          <p>Sky's Activate step right after the test drive, Sky on phones, a test drive that one tap cannot end, Sky's rebuilt script, the one-column sign-up page, and live Ditto avatars.</p>
-          <p class="helps"><b>Helps:</b> more signups reach the moment they decide to buy.</p>
+          <header><i class="av av-paulo"></i><div><h5>Paulo Gimenes</h5><span class="count">9 pull requests</span></div></header>
+          <p>Hang-ups and phone-menu keys on a client's own Telnyx account, a greeting that waits for a real voice, speech-to-speech audio that no longer freezes, and a staging that stays up.</p>
+          <p class="helps"><b>Helps:</b> Telnyx clients get calls that start and end right.</p>
         </article>
         <article class="thank">
           <header><i class="av av-igor"></i><div><h5>Igor Negrizoli</h5><span class="count">7 pull requests</span></div></header>
@@ -813,15 +818,15 @@
           <p class="helps"><b>Helps:</b> more bookings go through, and calls sound natural.</p>
         </article>
         <article class="thank">
-          <header><i class="av av-paulo"></i><div><h5>Paulo Gimenes</h5><span class="count">5 pull requests</span></div></header>
-          <p>Hang-ups and phone-menu keys on a client's own Telnyx account, a greeting that waits for a real voice, and speech-to-speech audio that no longer freezes.</p>
-          <p class="helps"><b>Helps:</b> Telnyx clients get calls that start and end right.</p>
+          <header><i class="av av-initials">JA</i><div><h5>James Anderson</h5><span class="count">2 pull requests</span></div></header>
+          <p>Killer Calls now rewards one-call-close language, and takes in cold calls for scoring.</p>
+          <p class="helps"><b>Helps:</b> sales coaching pushes toward closing on the first call.</p>
         </article>
         <article class="thank total">
-          <div class="total-num">80</div>
+          <div class="total-num">101</div>
           <div>
-            <h5>pull requests on master</h5>
-            <p>61 in the dashboard and 19 in the bot, from Thu Oct 8 to Thu Oct 15.</p>
+            <h5>pull requests merged</h5>
+            <p>61 dashboard · 19 bot · 12 website · 3 avatars · 3 staging · 2 Killer Calls · 1 call proxy</p>
           </div>
         </article>
       </div>
