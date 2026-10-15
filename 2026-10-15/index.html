@@ -496,8 +496,8 @@
   /* the closing total, spans the empty cells after the six developer cards */
   .thank.total { justify-content: center; gap: 0.35rem; border-top-color: var(--good); background: linear-gradient(160deg, oklch(78% 0.15 155 / 0.10), var(--surface)); }
   .thank.total .total-num { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 4.4vw, 3.8rem); line-height: 1; color: var(--good); }
+  @media (min-width: 760px) { .thank.total { grid-column: span 2; } }
   .thank.total p { margin-top: 0.25rem; }
-  .thank .av-initials { display: grid; place-items: center; font-style: normal; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: var(--bg); background: var(--accent-2); }
 </style>
 </head>
 <body>
@@ -508,7 +508,7 @@
     <!-- 1 · CALLS THAT START AND END RIGHT -->
     <section class="slide tone-call" id="s-calls" aria-label="One call stayed open four hours after the goodbye">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.13 190 / 0.42);">01</div>
-      <span class="eyebrow" data-rise="1">Thu Oct 8 to Thu Oct 15 · 101 pull requests on master</span>
+      <span class="eyebrow" data-rise="1">Thu Oct 8 to Thu Oct 15 · 99 pull requests on master</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">One call stayed open <em class="serif-i">four hours after the goodbye.</em></h2>
       <p class="lede" data-rise="1">Calls now hang up when the agent is done, and wait for a real person before the agent speaks.</p>
 
@@ -711,7 +711,7 @@
         </div>
       </div>
 
-      <p class="footnote" data-rise="3">Also: about 625 Twilio error reports per run are gone <b>(sc-95949 · dash #2699)</b>. Scheduled jobs no longer all start on the hour <b>(sc-96922 · dash #2927)</b>, and staging stays up <b>(coltrane #88 · coltrane #89 · coltrane #90)</b>. Killer Calls, our call-scoring tool, rewards one-call-close language and takes in cold calls <b>(kc #46 · kc #47)</b>.</p>
+      <p class="footnote" data-rise="3">Also: about 625 Twilio error reports per run are gone <b>(sc-95949 · dash #2699)</b>. Scheduled jobs no longer all start on the hour <b>(sc-96922 · dash #2927)</b>, and staging stays up <b>(coltrane #88 · coltrane #89 · coltrane #90)</b>.</p>
       <div class="crew" data-rise="4"><span class="crew-label">Built by</span><span class="dev"><i class="av av-alejandro"></i>Alejandro Medina</span><span class="dev"><i class="av av-gabriel"></i>Gabriel Laporte</span></div>
     </section>
 
@@ -760,7 +760,7 @@
     <!-- 7 · WHAT THIS MEANS FOR YOU -->
     <section class="slide" id="s-recap" aria-label="What this week means for you">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(80% 0.13 85 / 0.42);">07</div>
-      <span class="eyebrow" data-rise="1">Seven people · 101 pull requests</span>
+      <span class="eyebrow" data-rise="1">Six developers · 99 pull requests</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">What this week means <span class="grad">for you.</span></h2>
 
       <div class="motion recap" data-rise="2">
@@ -782,9 +782,9 @@
     <!-- 8 · THANK YOU -->
     <section class="slide" id="s-thanks" aria-label="Thank you to the people who shipped this week">
       <div class="idea-num" data-rise="1" style="-webkit-text-stroke-color:oklch(78% 0.15 155 / 0.42);">08</div>
-      <span class="eyebrow" data-rise="1">The people behind the 101 pull requests</span>
+      <span class="eyebrow" data-rise="1">The people behind the 99 pull requests</span>
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">Thank you, <span class="grad">team.</span></h2>
-      <p class="lede" data-rise="1">Seven people merged work into SalesCloser this week. This is what each of them changed, and who feels it.</p>
+      <p class="lede" data-rise="1">Six developers merged work into SalesCloser this week. This is what each of them changed, and who feels it.</p>
 
       <div class="thanks" data-rise="2">
         <article class="thank">
@@ -817,16 +817,11 @@
           <p>Bookings that ask for the missing phone or address, answers said once, the fixes from the Oct 9 production check, and voice engine settings with no deploy.</p>
           <p class="helps"><b>Helps:</b> more bookings go through, and calls sound natural.</p>
         </article>
-        <article class="thank">
-          <header><i class="av av-initials">JA</i><div><h5>James Anderson</h5><span class="count">2 pull requests</span></div></header>
-          <p>Killer Calls now rewards one-call-close language, and takes in cold calls for scoring.</p>
-          <p class="helps"><b>Helps:</b> sales coaching pushes toward closing on the first call.</p>
-        </article>
         <article class="thank total">
-          <div class="total-num">101</div>
+          <div class="total-num">99</div>
           <div>
             <h5>pull requests merged</h5>
-            <p>61 dashboard · 19 bot · 12 website · 3 avatars · 3 staging · 2 Killer Calls · 1 call proxy</p>
+            <p>61 dashboard · 19 bot · 12 website · 3 avatars · 3 staging · 1 call proxy</p>
           </div>
         </article>
       </div>

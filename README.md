@@ -36,8 +36,9 @@ and PR number so anyone can go read the original.
 
 The pull request count covers every `salescloser-*` repository in `wishpond-dev`, on its
 default branch: dashboard, bot, website (`salescloser-growthbook-edge`), avatars, staging
-(`salescloser-coltrane`), call proxy, Killer Calls, Zendesk app and the others. It does not
-count the automatic chart bumps in `salescloser-helm-charts` or this repository.
+(`salescloser-coltrane`), call proxy, Zendesk app and the others. It does not count
+`salescloser-killer-calls`, the automatic chart bumps in `salescloser-helm-charts`, or this
+repository.
 
 Two rules hold for every deck:
 
