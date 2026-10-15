@@ -82,7 +82,7 @@
       "n": 8,
       "slug": "2026-10-15-deck",
       "devices": [
-        "count-contrast-headline (Fourteen signups built an agent. None started a trial.)",
+        "from-to-headline (From the test drive straight to Activate)",
         "hook-cost-of-the-bug (One call stayed open four hours after the goodbye)",
         "fragment-headline (Transfers that go through, and answers said once)",
         "hero-personification (After the handover, the summary keeps listening)",
@@ -121,7 +121,7 @@
     "again-headline": 2,
     "without-headline": 2,
     "audience-recap": 3,
-    "count-contrast-headline": 3,
-    "not-y-headline": 3
+    "not-y-headline": 3,
+    "from-to-headline": 3
   }
 }
