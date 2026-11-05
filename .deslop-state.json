@@ -92,6 +92,19 @@
         "closer-by-the-numbers (80 pull requests on master, on the thank-you slide)",
         "closer-thank-you (Thank you, team: one card per developer, with the total)"
       ]
+    },
+    {
+      "n": 9,
+      "slug": "2026-11-05-deck",
+      "devices": [
+        "plain-claim-headline (The free trial needs no card, and it includes phone calls)",
+        "capability-headline (Agents can move and cancel earlier bookings, and book into GoHighLevel)",
+        "person-subject-headline (Hot leads reach a teammate who was briefed first)",
+        "paired-claim-headline (Agents hear brand names right, and clients see costs first)",
+        "product-subject-headline (SDR Center books the demo, and shows which AE has room)",
+        "audience-recap (What these two weeks mean for you: Clients, CS, AEs)",
+        "closer-thank-you (Thank you, team: one card per developer, with the total)"
+      ]
     }
   ],
   "cooldown": {
