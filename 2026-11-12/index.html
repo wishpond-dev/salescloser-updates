@@ -501,7 +501,6 @@
   .thank.total p { margin-top: 0.25rem; }
   .av-jose { display: grid; place-items: center; font-style: normal; font-weight: 600; font-size: 0.55rem; letter-spacing: 0.02em; color: var(--bg); background: linear-gradient(135deg, oklch(80% 0.13 85), oklch(78% 0.12 35)); }
   .thank .av-jose { font-size: 0.9rem; }
-  @media (min-width: 1240px) { .motion.five { grid-template-columns: repeat(5, 1fr); } }
 </style>
 </head>
 <body>
@@ -713,7 +712,7 @@
       <h2 data-rise="1" style="margin:0.9rem 0 0.5rem;">What we are working on <em class="serif-i">this sprint.</em></h2>
       <p class="lede" data-rise="1">These are the main things the team is working on now.</p>
 
-      <div class="motion four five" data-rise="2">
+      <div class="motion" data-rise="2">
         <div class="mitem">
           <h5>A SalesCloser mobile app</h5>
           <p>Calls, leads and hand-off alerts on the phone, and WhatsApp replies from anywhere.</p>
@@ -721,7 +720,7 @@
         </div>
         <div class="mitem">
           <h5>Custom dashboards</h5>
-          <p>Each user asks Sky for the dashboard they want, and it opens every time they sign in. Igor is building it.</p>
+          <p>Each user asks Sky for the dashboard they want, and it opens every time they sign in.</p>
           <div class="refs"><span class="ref story">sc-98908</span></div>
         </div>
         <div class="mitem">
@@ -745,18 +744,14 @@
           <div class="refs"><span class="ref story">sc-90874</span><span class="ref story">sc-93412</span></div>
         </div>
         <div class="mitem">
-          <h5>Lead generation</h5>
-          <p>New ways for agents to find leads and bring them in.</p>
-        </div>
-        <div class="mitem">
           <h5>A better knowledge base</h5>
           <p>Agents always answer from their knowledge base, and we test faster ways to search it.</p>
           <div class="refs"><span class="ref story">sc-99238</span><span class="ref story">sc-99468</span></div>
         </div>
         <div class="mitem">
-          <h5>Guardrails</h5>
-          <p>Agents stay away from unsafe content, and never call the same lead again and again.</p>
-          <div class="refs"><span class="ref story">sc-49981</span><span class="ref story">sc-99676</span></div>
+          <h5>Plan guardrails</h5>
+          <p>Each plan enforces its own limits. When a client reaches one, the app says why and offers an upgrade or an add-on.</p>
+          <div class="refs"><span class="ref story">sc-99115</span><span class="ref story">sc-99116</span><span class="ref story">sc-71383</span></div>
         </div>
         <div class="mitem">
           <h5>Discount coupon codes</h5>
